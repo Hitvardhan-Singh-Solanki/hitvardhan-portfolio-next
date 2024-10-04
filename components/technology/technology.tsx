@@ -33,10 +33,10 @@ export default function Technology() {
       />
       <div className="col-span-5 bg-[#03346E]">
         <div className="container mx-auto">
-          <h1 className="text-4xl font-bold text-center text-[var(--foreground)] py-4 mb-4">
+          <h1 className="text-2xl md:text-4xl  font-bold text-center text-[var(--foreground)] py-4 mb-4">
             Technologies I am Familiar With
           </h1>
-          <div className="carousel grid grid-cols-4 gap-3 place-items-center p-4">
+          <div className="carousel grid grid-cols-2 md:grid-cols-4 gap-3 place-items-center p-4">
             {technologies.map((technology) => (
               <CarouselItem
                 key={technology.alt}

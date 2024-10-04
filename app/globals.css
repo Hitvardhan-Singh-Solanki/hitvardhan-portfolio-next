@@ -5,6 +5,8 @@
 :root {
   --background: #021526;
   --foreground: #e2e2b6;
+  --secondary: #6eacda;
+  --tertiary: #03346e;
   --font-montserat: "Montserrat", sans-serif;
 }
 
@@ -45,4 +47,10 @@ h1 {
 
 .name {
   @apply font-semibold;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    @apply text-2xl;
+  }
 }

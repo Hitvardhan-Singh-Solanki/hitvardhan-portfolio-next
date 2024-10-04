@@ -40,7 +40,8 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
-        <footer className="bg-[var(--background)] text-[var(--foreground)] text-center py-4 sticky bottom-0 w-full">
+        <div className="h-10" />
+        <footer className="bg-[var(--tertiary)] text-[var(--foreground)] text-center py-4 fixed bottom-0 z-10 w-full">
           <p>Made with ❤️ by Hitvardhan</p>
         </footer>
       </body>

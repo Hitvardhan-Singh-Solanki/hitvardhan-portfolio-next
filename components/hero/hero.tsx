@@ -11,7 +11,7 @@ export default function Hero() {
   useGSAP(() => {
     const tl = gsap.timeline({
       delay: 0.25,
-      duration: 0.75,
+      duration: 0.5,
       ease: "power2.inOut",
     });
 
@@ -31,7 +31,7 @@ export default function Hero() {
     tl.to(".dp", {
       opacity: 1,
       scale: 0.8,
-      y: -50,
+      y: -10,
     });
 
     const tl2 = gsap.timeline({
@@ -69,7 +69,7 @@ export default function Hero() {
         </div>
       </div>
       <div
-        className="flex items-start justify-center col-span-5 gap-4 fixed bottom-20 right-10 cursor-pointer h-20 w-10 border-2 border-[var(--foreground)] rounded-full p-2"
+        className="hidden md:flex items-start justify-center col-span-5 gap-4 fixed bottom-20 right-10 cursor-pointer h-20 w-10 border-2 border-[var(--foreground)] rounded-full p-2"
         onClick={() => {
           window.scrollTo({
             top: window.innerHeight,
@@ -77,7 +77,7 @@ export default function Hero() {
           });
         }}
       >
-        <ChevronDown className="text-5xl go-down" />
+        <ChevronDown className="text-5xl md:text-xl go-down" />
       </div>
     </div>
   );
