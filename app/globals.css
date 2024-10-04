@@ -3,25 +3,46 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #021526;
+  --foreground: #e2e2b6;
+  --font-montserat: "Montserrat", sans-serif;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-montserat), Arial, Helvetica, sans-serif;
+  height: 100vh;
+}
+
+h1 {
+  @apply text-5xl;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@layer components {
+  .inverted-colors {
+    color: var(--background);
+    background-color: var(--foreground);
+    border-radius: 0.2rem;
+  }
+}
+
+.nav-link {
+  padding: 0.2rem 0.4rem;
+}
+
+.name,
+.nav-link:hover,
+.nav-link.active {
+  @apply inverted-colors;
+}
+
+.name {
+  @apply font-semibold;
 }
