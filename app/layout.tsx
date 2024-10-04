@@ -23,6 +23,14 @@ const montserat = localFont({
 export const metadata: Metadata = {
   title: "Hitvardhan Singh Solanki",
   description: "Hitvardhan Singh Solanki's Portfolio",
+  openGraph: {
+    type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
