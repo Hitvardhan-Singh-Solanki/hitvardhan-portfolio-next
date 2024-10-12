@@ -1,4 +1,3 @@
-import Photo from "@/components/photo/photo";
 import "./about.css";
 import Image from "next/image";
 
@@ -25,7 +24,7 @@ export default function About() {
         }}
       >
         <p className="opacity-0 animate-fadeInDelay1">
-          I'm a{" "}
+          I&apos;m a{" "}
           <span className="font-semibold" style={{ color: "var(--secondary)" }}>
             Senior Full-Stack Software Engineer
           </span>{" "}
@@ -50,7 +49,7 @@ export default function About() {
           <span className="font-semibold" style={{ color: "var(--secondary)" }}>
             operational efficiency
           </span>
-          . I've contributed to high-impact projects across startups and
+          . I&apos;ve contributed to high-impact projects across startups and
           multinational corporations, demonstrating adaptability and success.
         </p>
         <br />
@@ -92,7 +91,7 @@ export default function About() {
         <br />
 
         <p className="opacity-0 animate-fadeInDelay5">
-          I'm passionate about leveraging technology to solve real-world
+          I&apos;m passionate about leveraging technology to solve real-world
           problems while fostering a culture of{" "}
           <span className="font-semibold" style={{ color: "var(--secondary)" }}>
             collaboration
