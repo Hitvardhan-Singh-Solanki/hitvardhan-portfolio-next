@@ -29,15 +29,6 @@
   animation: fadeIn 1s ease-in forwards 1s;
 }
 
-.fade-image {
-  filter: blur(8px) brightness(0.5);
-  opacity: 0.3;
-}
-
-.container {
-  position: relative;
-}
-
 h1 {
   z-index: 1;
 }

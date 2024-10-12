@@ -1,7 +1,3 @@
-.work-container {
-  background-color: var(--background);
-}
-
 .job-entry {
   background: var(--tertiary);
   border-radius: 0.5rem;

@@ -1,12 +1,8 @@
 import "./about.css";
-import Image from "next/image";
 
 export default function About() {
   return (
-    <div
-      className="container mx-auto h-auto flex flex-col items-start justify-start pt-20 px-4 lg:px-0 animate-fadeIn relative"
-      style={{ backgroundColor: "var(--background)" }}
-    >
+    <div className="container mx-auto h-auto flex flex-col items-start justify-start pt-20 px-4 lg:px-0 animate-fadeIn">
       <h1
         className="text-2xl md:text-4xl font-bold text-transparent bg-clip-text"
         style={{
@@ -104,17 +100,6 @@ export default function About() {
           knowledge with fellow engineers.
         </p>
       </div>
-
-      <div className="absolute top-0 left-0 w-full h-full z-[-1] overflow-hidden">
-        <Image
-          src="/cloud-computing.svg"
-          alt="cloud-computing"
-          layout="fill"
-          objectFit="cover"
-          className="fade-image"
-        />
-      </div>
-
       <div className="h-10"></div>
     </div>
   );

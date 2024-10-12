@@ -46,10 +46,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${montserat.variable} antialiased`}
       >
-        <Navbar />
-        {children}
-        <div className="h-10" />
-        <footer className="bg-[var(--tertiary)] text-[var(--foreground)] text-center py-4 fixed bottom-0 z-10 w-full">
+        <div className="relative">
+          <Navbar />
+          {children}
+          <div className="h-10" />
+          <div className="absolute top-0 left-0 w-full h-full overlay"></div>
+        </div>
+        <footer className="bg-[var(--background)] opacity-70 text-[var(--foreground)] text-center py-2 fixed bottom-0 z-10 w-full flex flex-col items-center justify-center">
           <p>Made with ❤️ by Hitvardhan</p>
         </footer>
       </body>

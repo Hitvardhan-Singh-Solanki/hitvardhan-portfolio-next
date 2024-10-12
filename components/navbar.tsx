@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 
 export default function Navbar() {
   return (
-    <nav className="flex justify-between items-center container mx-auto py-5 ">
+    <nav className="flex justify-between items-center container mx-auto py-5">
       <div className="flex flex-grow container">
         <Link href="/">
           <Image
@@ -17,7 +17,11 @@ export default function Navbar() {
         </Link>
       </div>
       <Link href="/contact">
-        <Button variant="outline" size="lg" className="max-w-50 max-h-15">
+        <Button
+          variant="outline"
+          size="lg"
+          className="max-w-50 max-h-15 contact-button"
+        >
           Contact
         </Button>
       </Link>
