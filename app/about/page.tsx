@@ -8,7 +8,7 @@ export default function About() {
       style={{ backgroundColor: "var(--background)" }}
     >
       <h1
-        className="text-6xl font-bold text-transparent bg-clip-text"
+        className="text-2xl md:text-4xl font-bold text-transparent bg-clip-text"
         style={{
           backgroundImage:
             "linear-gradient(to right, var(--secondary), var(--tertiary))",

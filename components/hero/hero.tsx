@@ -71,6 +71,7 @@ export default function Hero() {
       <div
         className="hidden md:flex items-start justify-center col-span-5 gap-4 fixed bottom-20 right-10 cursor-pointer h-10 w-6 border-2 border-[var(--foreground)] rounded-full"
         onClick={() => {
+          console.log("clicked");
           window.scrollTo({
             top: window.innerHeight * 2,
             behavior: "smooth",

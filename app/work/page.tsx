@@ -69,7 +69,7 @@ export default function Work() {
   return (
     <div className="work-container container mx-auto h-auto pt-20 px-4 lg:px-0">
       <h1
-        className={`text-6xl font-bold text-transparent bg-clip-text mb-8 ${
+        className={`text-2xl md:text-4xl font-bold text-transparent bg-clip-text mb-8 ${
           isVisible ? "animate-fadeIn" : ""
         }`}
         style={{

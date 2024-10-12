@@ -4,9 +4,15 @@ import { FaLinkedin, FaGithub, FaLink, FaEnvelope } from "react-icons/fa6";
 export default function Contact() {
   return (
     <div className="container mx-auto h-screen flex flex-col items-start justify-start pt-20">
-      <h2 className="text-2xl md:text-4xl font-bold text-center text-[var(--foreground)] py-4 mb-4">
+      <h1
+        className="text-2xl md:text-4xl font-bold text-transparent bg-clip-text"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, var(--secondary), var(--tertiary))",
+        }}
+      >
         Like what you see?
-      </h2>
+      </h1>
       <p className="text-center text-sm md:text-md text-[var(--foreground)]">
         I am currently looking for a full-time position in the field of web
         development.
