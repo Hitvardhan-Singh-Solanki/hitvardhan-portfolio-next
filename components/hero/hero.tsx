@@ -42,7 +42,7 @@ export default function Hero() {
     });
 
     tl2.to(".go-down", {
-      y: 35,
+      y: 15,
     });
   });
 
@@ -69,15 +69,15 @@ export default function Hero() {
         </div>
       </div>
       <div
-        className="hidden md:flex items-start justify-center col-span-5 gap-4 fixed bottom-20 right-10 cursor-pointer h-20 w-10 border-2 border-[var(--foreground)] rounded-full p-2"
+        className="hidden md:flex items-start justify-center col-span-5 gap-4 fixed bottom-20 right-10 cursor-pointer h-10 w-6 border-2 border-[var(--foreground)] rounded-full"
         onClick={() => {
           window.scrollTo({
-            top: window.innerHeight,
+            top: window.innerHeight * 2,
             behavior: "smooth",
           });
         }}
       >
-        <ChevronDown className="text-5xl md:text-xl go-down" />
+        <ChevronDown className="go-down" />
       </div>
     </div>
   );

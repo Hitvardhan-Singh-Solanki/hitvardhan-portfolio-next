@@ -30,21 +30,15 @@ export default function MainButtons() {
           About
         </Link>
         <Link
-          href="/contact"
-          className="mt-4 text-[var(--foreground)] hover:border-b hover:border-b-[var(--foreground)] px-2 py-[0.2rem] text-lg main-button opacity-0 "
-        >
-          Contact
-        </Link>
-        <Link
           href="/work"
           className="mt-4 text-[var(--foreground)] hover:border-b hover:border-b-[var(--foreground)] px-2 py-[0.2rem] text-lg main-button opacity-0 "
         >
           Work
         </Link>
         <Link
-          className="mt-4 text-[var(--foreground)] hover:border-b hover:border-b-[var(--foreground)] px-2 py-[0.2rem] text-lg main-button opacity-0 "
-          href="https://resumes-flax.vercel.app"
+          href="resume.pdf"
           target="_blank"
+          className="mt-4 text-[var(--foreground)] hover:border-b hover:border-b-[var(--foreground)] px-2 py-[0.2rem] text-lg main-button opacity-0 "
         >
           Resume
         </Link>

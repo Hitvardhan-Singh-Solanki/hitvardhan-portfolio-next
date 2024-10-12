@@ -1,61 +1,122 @@
+import Photo from "@/components/photo/photo";
+import "./about.css";
+import Image from "next/image";
+
 export default function About() {
   return (
-    <>
-      <div className="container mx-auto h-auto flex flex-col items-start justify-start pt-20">
-        <h1 className="text-4xl">A bit about me</h1>
-        <div className="flex flex-col items-center justify-center mt-10 leading-loose">
-          <p>
-            I am a Senior Full-Stack Software Engineer based in Barcelona,
-            Spain, with seven years of comprehensive experience in web
-            engineering and software development.
-          </p>
-          <br />
-          <p>
-            My career has been marked by a passion for building innovative
-            solutions that enhance user experiences and drive operational
-            efficiency. Throughout my journey, I have successfully contributed
-            to various high-impact projects, demonstrating my ability to adapt
-            and thrive in both startup and multinational corporate environments.
-          </p>
-          <br />
-          <p>
-            I have a diverse technical skill set, including proficiency in
-            technologies such as AngularJS, Node.js, Python, and ReactJS,
-            alongside expertise in database management with MySQL and MongoDB.
-            My role as a full-stack developer allows me to engage in all stages
-            of the software development lifecycle, from ideation and design to
-            implementation and maintenance. I take pride in my ability to
-            translate complex requirements into user-friendly applications,
-            resulting in significant improvements in customer satisfaction and
-            operational metrics.
-          </p>
-          <br />
-          <p>
-            One of my key achievements includes leading the development of a
-            vendor onboarding solution that not only increased satisfaction
-            scores by 60% but also delivered €1.5 million in cost savings for my
-            organization. Additionally, I played a crucial role in building a
-            customer support SDK that streamlined communication for users across
-            various platforms, resulting in reduced operational costs and
-            enhanced user experiences. My commitment to excellence is reflected
-            in my consistent recognition through various awards for outstanding
-            performance in previous roles.
-          </p>
-          <br />
-          <p>
-            I am not only passionate about leveraging technology to solve
-            real-world problems but also dedicated to fostering a culture of
-            learning and collaboration within my teams. As I continue to grow in
-            my career, I am excited to take on new challenges and contribute to
-            innovative projects that make a positive impact on users and
-            communities. Outside of my professional pursuits, I enjoy exploring
-            new technologies and trends in software development, as well as
-            collaborating with fellow engineers to share knowledge and best
-            practices.
-          </p>
-        </div>
-        <div className="h-10"></div>
+    <div
+      className="container mx-auto h-auto flex flex-col items-start justify-start pt-20 px-4 lg:px-0 animate-fadeIn relative"
+      style={{ backgroundColor: "var(--background)" }}
+    >
+      <h1
+        className="text-6xl font-bold text-transparent bg-clip-text"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, var(--secondary), var(--tertiary))",
+        }}
+      >
+        A Bit About Me
+      </h1>
+      <div
+        className="flex flex-col items-start justify-start mt-10 leading-loose text-lg max-w-3xl"
+        style={{
+          color: "var(--foreground)",
+          fontFamily: "var(--font-montserat)",
+        }}
+      >
+        <p className="opacity-0 animate-fadeInDelay1">
+          I'm a{" "}
+          <span className="font-semibold" style={{ color: "var(--secondary)" }}>
+            Senior Full-Stack Software Engineer
+          </span>{" "}
+          based in{" "}
+          <span className="font-semibold" style={{ color: "var(--secondary)" }}>
+            Barcelona, Spain
+          </span>
+          , with{" "}
+          <span className="font-semibold" style={{ color: "var(--secondary)" }}>
+            7 years
+          </span>{" "}
+          of experience in web engineering and software development.
+        </p>
+        <br />
+
+        <p className="opacity-0 animate-fadeInDelay2">
+          I have a passion for building innovative solutions that drive{" "}
+          <span className="font-semibold" style={{ color: "var(--secondary)" }}>
+            user experiences
+          </span>{" "}
+          and{" "}
+          <span className="font-semibold" style={{ color: "var(--secondary)" }}>
+            operational efficiency
+          </span>
+          . I've contributed to high-impact projects across startups and
+          multinational corporations, demonstrating adaptability and success.
+        </p>
+        <br />
+
+        <p className="opacity-0 animate-fadeInDelay3">
+          My diverse skill set includes{" "}
+          <span className="font-semibold" style={{ color: "var(--secondary)" }}>
+            AngularJS, Node.js, Python, and ReactJS
+          </span>
+          , as well as expertise in{" "}
+          <span className="font-semibold" style={{ color: "var(--secondary)" }}>
+            database management
+          </span>{" "}
+          with MySQL and MongoDB. I thrive in all stages of the{" "}
+          <span className="font-semibold" style={{ color: "var(--secondary)" }}>
+            software development lifecycle
+          </span>
+          , delivering user-friendly applications that improve{" "}
+          <span className="font-semibold" style={{ color: "var(--secondary)" }}>
+            customer satisfaction
+          </span>{" "}
+          and operational metrics.
+        </p>
+        <br />
+
+        <p className="opacity-0 animate-fadeInDelay4">
+          A key achievement: leading the development of a vendor onboarding
+          solution that boosted satisfaction by{" "}
+          <span className="font-semibold" style={{ color: "var(--secondary)" }}>
+            60%
+          </span>{" "}
+          and saved{" "}
+          <span className="font-semibold" style={{ color: "var(--secondary)" }}>
+            €1.5 million
+          </span>
+          . I also developed a customer support SDK, enhancing communication
+          across platforms, cutting costs, and elevating user experiences.
+        </p>
+        <br />
+
+        <p className="opacity-0 animate-fadeInDelay5">
+          I'm passionate about leveraging technology to solve real-world
+          problems while fostering a culture of{" "}
+          <span className="font-semibold" style={{ color: "var(--secondary)" }}>
+            collaboration
+          </span>{" "}
+          and{" "}
+          <span className="font-semibold" style={{ color: "var(--secondary)" }}>
+            continuous learning
+          </span>
+          . Outside work, I enjoy exploring new technologies and sharing
+          knowledge with fellow engineers.
+        </p>
       </div>
-    </>
+
+      <div className="absolute top-0 left-0 w-full h-full z-[-1] overflow-hidden">
+        <Image
+          src="/cloud-computing.svg"
+          alt="cloud-computing"
+          layout="fill"
+          objectFit="cover"
+          className="fade-image"
+        />
+      </div>
+
+      <div className="h-10"></div>
+    </div>
   );
 }

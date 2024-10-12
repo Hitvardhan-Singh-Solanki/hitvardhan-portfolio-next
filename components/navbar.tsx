@@ -1,36 +1,26 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Button } from "./ui/button";
 
 export default function Navbar() {
   return (
-    <nav className="flex justify-center items-center my-10 h-30">
-      <Link href="/">
-        <Image src="/logo.svg" alt="logo" width={100} height={100} />
+    <nav className="flex justify-between items-center container mx-auto py-5 ">
+      <div className="flex flex-grow container">
+        <Link href="/">
+          <Image
+            src="/logo.svg"
+            alt="logo"
+            width={120}
+            height={100}
+            className="max-w-50 max-h-15"
+          />
+        </Link>
+      </div>
+      <Link href="/contact">
+        <Button variant="outline" size="lg" className="max-w-50 max-h-15">
+          Contact
+        </Button>
       </Link>
     </nav>
-  );
-}
-
-export function NavbarItem({
-  href,
-  icon,
-  text,
-  active,
-}: {
-  href: string;
-  icon: React.ReactNode;
-  text: string;
-  active?: boolean;
-}) {
-  return (
-    <Link
-      href={href}
-      className={`text-sm font-medium nav-link ${active ? "active" : ""}`}
-    >
-      <span className="flex items-center gap-2 justify-center">
-        {icon}
-        {text}
-      </span>
-    </Link>
   );
 }
