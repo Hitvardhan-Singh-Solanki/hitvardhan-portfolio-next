@@ -59,7 +59,7 @@ h1 {
   background-image: radial-gradient(
     circle at center,
     var(--tertiary) 10%,
-    var(--background) 95%
+    var(--background) 60%
   );
   position: absolute;
   top: 0;
