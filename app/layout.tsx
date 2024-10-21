@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/navbar";
@@ -55,6 +56,7 @@ export default function RootLayout({
         <footer className="bg-[var(--background)] opacity-70 text-[var(--foreground)] text-center py-2 fixed bottom-0 z-10 w-full flex flex-col items-center justify-center">
           <p>Made with ❤️ by Hitvardhan</p>
         </footer>
+        <SpeedInsights />
       </body>
     </html>
   );

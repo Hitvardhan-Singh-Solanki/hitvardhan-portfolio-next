@@ -39,7 +39,6 @@ h1 {
   padding: 0.2rem 0.4rem;
 }
 
-.name,
 .nav-link:hover,
 .nav-link.active {
   @apply inverted-colors;
@@ -47,6 +46,10 @@ h1 {
 
 .name {
   @apply font-semibold;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: radial-gradient(circle, var(--tertiary), var(--secondary));
 }
 
 @media (max-width: 768px) {
@@ -56,11 +59,7 @@ h1 {
 }
 
 .overlay {
-  background-image: radial-gradient(
-    circle at center,
-    var(--tertiary) 10%,
-    var(--background) 60%
-  );
+  background-color: var(--background);
   position: absolute;
   top: 0;
   left: 0;

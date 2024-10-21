@@ -5,10 +5,9 @@
   font-family: var(--font-montserat);
 
   &:hover {
-    background-image:radial-gradient(circle at center, var(--tertiary) 10%, var(--background) 95%);
     color: var(--background);
-    transform: scale(1.1);
-    border: 1px solid var(--foreground);
+    border: 0.5px solid var(--foreground);
+    transform: scale(1.05); 
     transition: all 0.2s ease-in-out;
   }
 }

@@ -60,7 +60,8 @@ export default function Hero() {
           <hr className="w-0 h-1 bg-[var(--foreground)]" />
           <div className="main-content my-4 opacity-0 flex flex-col items-center justify-center">
             <h1 className="leading-loose">
-              Hi, I am <span className="name px-2">__HITVARDHAN__!</span>
+              Hi, I am{" "}
+              <span className="name px-2 font-bold">__HITVARDHAN__!</span>
             </h1>
             <h2 className="leading-loose">FULL STACK DEVELOPER</h2>
           </div>
