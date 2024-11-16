@@ -7,7 +7,7 @@ export default function Blogs() {
   return (
     <div className="container mx-auto h-screen flex flex-col items-start justify-start pt-20">
       <Heading>Blogs (work in progress)</Heading>
-      {blogs.map((blog, i) => (
+      {blogs.map((blog) => (
         <div
           key={blog.id}
           className="mb-10 p-4 border border-[var(--secondary)] rounded-lg max-w-5xl"

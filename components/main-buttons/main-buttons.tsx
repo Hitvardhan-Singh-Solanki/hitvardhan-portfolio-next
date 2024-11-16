@@ -20,6 +20,7 @@ export default function MainButtons() {
       delay: 1,
     });
   });
+
   return (
     <>
       <div className="flex items-center justify-center gap-4 mt-6 pt-2">
