@@ -1,3 +1,4 @@
+import { Heading } from "@/components/heading/heading";
 import "./contact.scss";
 import Link from "next/link";
 import { FaLinkedin, FaGithub, FaDownload, FaEnvelope } from "react-icons/fa6";
@@ -5,15 +6,7 @@ import { FaLinkedin, FaGithub, FaDownload, FaEnvelope } from "react-icons/fa6";
 export default function Contact() {
   return (
     <div className="container mx-auto h-screen flex flex-col items-start justify-start pt-20">
-      <h1
-        className="text-2xl md:text-4xl font-bold text-transparent bg-clip-text"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, var(--secondary), var(--tertiary))",
-        }}
-      >
-        Like what you see?
-      </h1>
+      <Heading>Like what you see?</Heading>
       <p className="text-lg mt-5 text-center md:text-md text-[var(--foreground)]">
         I am currently looking for a full-time position in the field of web
         development.

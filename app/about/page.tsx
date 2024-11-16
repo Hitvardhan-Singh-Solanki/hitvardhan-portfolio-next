@@ -1,17 +1,10 @@
-import "./about.css";
+import { Heading } from "@/components/heading/heading";
+import "./about.scss";
 
 export default function About() {
   return (
     <div className="container mx-auto h-auto flex flex-col items-start justify-start pt-20 px-4 lg:px-0 animate-fadeIn">
-      <h1
-        className="text-2xl md:text-4xl font-bold text-transparent bg-clip-text"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, var(--secondary), var(--tertiary))",
-        }}
-      >
-        A Bit About Me
-      </h1>
+      <Heading>A Bit About Me</Heading>
       <div
         className="flex flex-col items-start justify-start mt-10 leading-loose text-lg max-w-3xl"
         style={{
