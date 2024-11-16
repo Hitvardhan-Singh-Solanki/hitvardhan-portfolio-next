@@ -1,7 +1,6 @@
 import { Heading } from "@/components/heading/heading";
 import { blogs } from "@/data/blogs";
 import Link from "next/link";
-import "./blogs.scss";
 
 export default function Blogs() {
   return (
