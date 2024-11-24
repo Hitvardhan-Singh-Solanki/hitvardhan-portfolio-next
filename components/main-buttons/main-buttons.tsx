@@ -49,7 +49,7 @@ export default function MainButtons() {
           Certifications
         </Link>
         <Link
-          href="resume.pdf"
+          href="/docs/pdf/resume.pdf"
           target="_blank"
           className="mt-4 text-[var(--foreground)] hover:border-b hover:border-b-[var(--foreground)] px-2 py-[0.2rem] text-lg main-button opacity-0 "
         >
