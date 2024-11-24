@@ -5,7 +5,7 @@ export default function Photo() {
     <div className="w-60 h-72 bg-white">
       <div className="bg-slate-900 m-2 w-56 h-56 rounded-lg">
         <Image
-          src="img/png/main.png"
+          src="/img/png/main.png"
           alt="photo"
           width={56}
           height={56}
