@@ -23,7 +23,7 @@ export default function Contact() {
         </div>
         <div className="p-4 contact-content">
           <Link
-            href="resume.pdf"
+            href="/docs/pdf/resume.pdf"
             target="_blank"
             className="text-[var(--foreground)] flex flex-col items-center justify-center"
           >
