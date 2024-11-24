@@ -1,26 +1,25 @@
 import { supabase } from "@/lib/supabase";
 import { NextApiRequest, NextApiResponse } from "next";
 
-interface Blog {
-  id: number;
-  title: string;
-  content: string;
-}
+// interface Blog {
+//   id: number;
+//   title: string;
+//   content: string;
+// }
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   try {
-    res.status(200).json({ message: "Hello World" });
-    // const { data, error } = await supabase
-    //   .from<Blog>("blogs")
-    //   .select("*")
-    //   .order("id", { ascending: false });
+    const { data, error } = await supabase
+      .from("blogs")
+      .select("*")
+      .order("id", { ascending: false });
 
-    // if (error) throw error;
+    if (error) throw error;
 
-    // res.status(200).json(data);
+    res.status(200).json(data);
   } catch (error) {
     if (error instanceof Error) {
       console.error(error.message);
