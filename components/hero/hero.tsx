@@ -51,7 +51,7 @@ export default function Hero() {
       <div className="grid grid-cols-5 gap-4 items-center justify-between h-full">
         <div className="col-span-5 flex flex-col items-center justify-center expand-center opacity-1">
           <Image
-            src="/main.png"
+            src="/img/png/main.png"
             alt="Hero"
             width={200}
             height={200}
