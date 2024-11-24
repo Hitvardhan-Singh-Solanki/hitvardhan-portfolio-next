@@ -12,14 +12,15 @@ export default async function handler(
   res: NextApiResponse
 ) {
   try {
-    const { data, error } = await supabase
-      .from<Blog>("blogs")
-      .select("*")
-      .order("id", { ascending: false });
+    res.status(200).json({ message: "Hello World" });
+    // const { data, error } = await supabase
+    //   .from<Blog>("blogs")
+    //   .select("*")
+    //   .order("id", { ascending: false });
 
-    if (error) throw error;
+    // if (error) throw error;
 
-    res.status(200).json(data);
+    // res.status(200).json(data);
   } catch (error) {
     if (error instanceof Error) {
       console.error(error.message);
