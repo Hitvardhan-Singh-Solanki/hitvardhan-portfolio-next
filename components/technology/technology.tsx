@@ -3,29 +3,29 @@
 import Image from "next/image";
 
 const technologies = [
-  { src: "img/svg/ts.svg", alt: "typescript", name: "Typescript" },
-  { src: "img/svg/js.svg", alt: "javascript", name: "Javascript" },
-  { src: "img/svg/next-js.svg", alt: "next-js", name: "Next.js" },
-  { src: "img/svg/tailwind.svg", alt: "tailwind", name: "Tailwind" },
-  { src: "img/svg/react.svg", alt: "react", name: "React" },
-  { src: "img/svg/go.svg", alt: "go", name: "Go" },
-  { src: "img/svg/angular.svg", alt: "angular", name: "Angular" },
-  { src: "img/svg/vue.svg", alt: "vue", name: "Vue" },
-  { src: "img/svg/html.svg", alt: "html-5", name: "HTML" },
-  { src: "img/svg/python.svg", alt: "python", name: "Python" },
-  { src: "img/svg/kotlin.svg", alt: "kotlin", name: "Kotlin" },
-  { src: "img/svg/node.svg", alt: "node", name: "Node" },
-  { src: "img/svg/docker.svg", alt: "docker", name: "Docker" },
-  { src: "img/svg/kubernets.svg", alt: "kubernetes", name: "Kubernetes" },
-  { src: "img/svg/postgresql.svg", alt: "postgres", name: "Postgresql" },
-  { src: "img/svg/mongodb.svg", alt: "mongodb", name: "Mongo" },
+  { src: "/img/svg/ts.svg", alt: "typescript", name: "Typescript" },
+  { src: "/img/svg/js.svg", alt: "javascript", name: "Javascript" },
+  { src: "/img/svg/next-js.svg", alt: "next-js", name: "Next.js" },
+  { src: "/img/svg/tailwind.svg", alt: "tailwind", name: "Tailwind" },
+  { src: "/img/svg/react.svg", alt: "react", name: "React" },
+  { src: "/img/svg/go.svg", alt: "go", name: "Go" },
+  { src: "/img/svg/angular.svg", alt: "angular", name: "Angular" },
+  { src: "/img/svg/vue.svg", alt: "vue", name: "Vue" },
+  { src: "/img/svg/html.svg", alt: "html-5", name: "HTML" },
+  { src: "/img/svg/python.svg", alt: "python", name: "Python" },
+  { src: "/img/svg/kotlin.svg", alt: "kotlin", name: "Kotlin" },
+  { src: "/img/svg/node.svg", alt: "node", name: "Node" },
+  { src: "/img/svg/docker.svg", alt: "docker", name: "Docker" },
+  { src: "/img/svg/kubernets.svg", alt: "kubernetes", name: "Kubernetes" },
+  { src: "/img/svg/postgresql.svg", alt: "postgres", name: "Postgresql" },
+  { src: "/img/svg/mongodb.svg", alt: "mongodb", name: "Mongo" },
 ];
 
 export default function Technology() {
   return (
     <>
       <Image
-        src="img/svg/waves.svg"
+        src="/img/svg/waves.svg"
         alt="divider"
         width={100}
         height={100}
