@@ -8,7 +8,7 @@ export default function Navbar() {
       <div className="flex flex-grow container">
         <Link href="/">
           <Image
-            src="/logo.svg"
+            src="img/svg/logo.svg"
             alt="logo"
             width={120}
             height={100}

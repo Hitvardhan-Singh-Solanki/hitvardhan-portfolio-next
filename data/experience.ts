@@ -8,7 +8,7 @@ export const experience = [
       "Developed a new feature that enables users to view compliance status for all customers.",
       "Tech Stack: AngularJS, Node.js, MySQL.",
     ],
-    image: "/eqs.svg",
+    image: "img/svg/eqs.svg",
   },
   {
     company: "Glovo",
@@ -19,7 +19,7 @@ export const experience = [
       "Led the creation of a contact support SDK integrated across Glovo platforms in 25 countries.",
       "Saved €7/minute in partner calls by developing an automated messaging system.",
     ],
-    image: "/glovo.svg",
+    image: "img/svg/glovo.svg",
   },
   {
     company: "Grab",
@@ -29,7 +29,7 @@ export const experience = [
       "Led a team in transitioning services from monolithic architecture to microservices, saving costs and reducing CI/CD time.",
       "Built a face comparison system for KYC, reducing processing time from 7 days to 2 hours.",
     ],
-    image: "/grab.png",
+    image: "/img/png/grab.png",
   },
   {
     company: "Ernst & Young",
@@ -39,7 +39,7 @@ export const experience = [
       "Developed a full-stack web application for Nationwide Insurance to facilitate motor insurance purchases.",
       "Created and maintained an error-handling engine that enhanced customer experience.",
     ],
-    image: "/ey.svg",
+    image: "img/svg/ey.svg",
   },
   {
     company: "Appirio (Wipro)",

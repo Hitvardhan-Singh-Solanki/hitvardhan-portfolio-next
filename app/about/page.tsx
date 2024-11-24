@@ -23,7 +23,7 @@ export default function About() {
           </span>
           , with{" "}
           <span className="font-semibold" style={{ color: "var(--secondary)" }}>
-            7 years
+            a decade
           </span>{" "}
           of experience in web engineering and software development.
         </p>
