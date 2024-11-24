@@ -38,7 +38,7 @@ export default function MainButtons() {
         </Link>
         <Link
           href="/blogs"
-          className="mt-4 text-[var(--foreground)] hover:border-b hover:border-b-[var(--foreground)] px-2 py-[0.2rem] text-lg main-button opacity-0"
+          className="mt-4 text-[var(--foreground)] hover:border-b hover:border-b-[var(--foreground)] px-2 py-[0.2rem] text-lg main-button opacity-0 hidden"
         >
           Blogs
         </Link>

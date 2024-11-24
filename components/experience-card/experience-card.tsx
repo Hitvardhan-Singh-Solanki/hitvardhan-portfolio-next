@@ -10,21 +10,14 @@ export type ExperienceCardProps = {
     date: string;
   };
   index: number;
-  isVisible: boolean;
 };
 
-export default function ExperienceCard({
-  index,
-  job,
-  isVisible,
-}: ExperienceCardProps) {
+export default function ExperienceCard({ index, job }: ExperienceCardProps) {
   return (
     <div>
       <div
         key={index}
-        className={`job-entry p-6 border border-[var(--secondary)] rounded-lg hover:shadow-lg transition-shadow duration-300 transform transition-all delay-${
-          index * 200
-        } ${isVisible ? "animate-slideInUp" : "opacity-0 translate-y-8"}`}
+        className={`job-entry p-6 border border-[var(--secondary)] rounded-lg hover:shadow-lg opacity-0`}
         style={{
           backgroundColor: "rgba(0, 0, 0, 0.2)",
           color: "var(--foreground)",
