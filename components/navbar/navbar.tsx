@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 export default function Navbar() {
   return (
@@ -8,7 +8,7 @@ export default function Navbar() {
       <div className="flex flex-grow container">
         <Link href="/">
           <Image
-            src="/logo.svg"
+            src="img/svg/logo.svg"
             alt="logo"
             width={120}
             height={100}

@@ -20,6 +20,7 @@ export default function MainButtons() {
       delay: 1,
     });
   });
+
   return (
     <>
       <div className="flex items-center justify-center gap-4 mt-6 pt-2">
@@ -34,6 +35,18 @@ export default function MainButtons() {
           className="mt-4 text-[var(--foreground)] hover:border-b hover:border-b-[var(--foreground)] px-2 py-[0.2rem] text-lg main-button opacity-0 "
         >
           Work
+        </Link>
+        <Link
+          href="/blogs"
+          className="mt-4 text-[var(--foreground)] hover:border-b hover:border-b-[var(--foreground)] px-2 py-[0.2rem] text-lg main-button opacity-0"
+        >
+          Blogs
+        </Link>
+        <Link
+          href="/certificates"
+          className="mt-4 text-[var(--foreground)] hover:border-b hover:border-b-[var(--foreground)] px-2 py-[0.2rem] text-lg main-button opacity-0"
+        >
+          Certifications
         </Link>
         <Link
           href="resume.pdf"
