@@ -19,3 +19,31 @@ bun dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+## Testing
+
+The project includes comprehensive testing setup:
+
+```bash
+# Run unit and integration tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Run end-to-end tests
+npm run test:e2e
+
+# Open Cypress test runner
+npm run cypress:open
+```
+
+## Quality Checks
+
+The project includes several quality checks that run automatically:
+
+- TypeScript type checking: `npm run type-check`
+- ESLint for code style: `npm run lint`
+- Pre-commit hooks via Husky that run type checking, linting, and tests
+- Error boundaries for graceful error handling
+- Zod for runtime type validation

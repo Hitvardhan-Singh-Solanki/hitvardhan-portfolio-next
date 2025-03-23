@@ -1,25 +1,24 @@
 import { Heading } from "@/components/heading/heading";
 import { blogs } from "@/data/blogs";
-import Link from "next/link";
+import { BlogCard } from "@/components/blog/blog-card";
 
 export default function Blogs() {
   return (
-    <div className="container mx-auto h-screen flex flex-col items-start justify-start pt-20">
-      <Heading>Blogs (work in progress)</Heading>
-      {blogs.map((blog) => (
-        <div
-          key={blog.id}
-          className="mb-10 p-4 border border-[var(--secondary)] rounded-lg max-w-5xl"
-        >
-          <h2>
-            <Link href={`/blogs/${blog.id}`} className="title">
-              {blog.title}
-            </Link>
-            <span> by {blog.author}</span>
-          </h2>
-          <p>{blog.content.slice(0, 150)}...</p>
-        </div>
-      ))}
-    </div>
+    <main className="container mx-auto min-h-screen py-20 px-4">
+      <div className="flex flex-col gap-8">
+        <header className="space-y-4">
+          <Heading>My Blog</Heading>
+          <p className="text-lg text-[var(--muted-foreground)]">
+            Thoughts, learnings, and insights about web development, software engineering, and technology.
+          </p>
+        </header>
+
+        <section className="grid gap-6 sm:grid-cols-1 lg:grid-cols-2">
+          {blogs.map((blog) => (
+            <BlogCard key={blog.id} {...blog} />
+          ))}
+        </section>
+      </div>
+    </main>
   );
 }
