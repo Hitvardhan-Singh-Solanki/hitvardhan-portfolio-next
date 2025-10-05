@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.scss";
 import Navbar from "@/components/navbar/navbar";
 import { Footer } from "@/components/footer/footer";
+import { ThemeProvider } from "@/context/theme-context";
 
 const geistSans = localFont({
   src: "../public/fonts/GeistVF.woff",
@@ -41,21 +42,34 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/img/svg/logo.svg" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                const theme = localStorage.getItem('theme') || 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+              } catch (e) {}
+            `,
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${montserat.variable} antialiased`}
+        suppressHydrationWarning
       >
-        <div className="relative">
-          <Navbar />
-          {children}
-          <div className="h-10" />
-          <div className="absolute top-0 left-0 w-full h-full overlay"></div>
-        </div>
-        <Footer />
-        <SpeedInsights />
+        <ThemeProvider>
+          <div className="relative">
+            <Navbar />
+            {children}
+            <div className="h-10" />
+            <div className="absolute top-0 left-0 w-full h-full overlay"></div>
+          </div>
+          <Footer />
+          <SpeedInsights />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -11,44 +11,80 @@ export default function Contact() {
         I am currently looking for a full-time position in the field of web
         development.
       </p>
-      <div className="mt-10 grid grid-cols-1 md:grid-cols-4 gap-4 w-full content-center items-center justify-center text-center my-4">
-        <div className="p-4 contact-content">
+      <div className="mt-10 grid grid-cols-1 md:grid-cols-4 gap-6 w-full content-center items-center justify-center text-center my-4">
+        <div
+          className="p-6 contact-content rounded-xl border transition-all duration-300 hover:scale-105"
+          style={{
+            backgroundColor: "var(--card-bg)",
+            borderColor: "var(--card-border)",
+          }}
+        >
           <Link
             href="mailto:hitvardhan19@gmail.com"
             className="text-[var(--foreground)] flex flex-col items-center justify-center"
           >
-            <FaEnvelope className="w-10 h-10" />
-            <span className="mt-2">hitvardhan19@gmail.com</span>
+            <FaEnvelope
+              className="w-12 h-12 mb-3"
+              style={{ color: "var(--primary)" }}
+            />
+            <span className="mt-2 font-medium">hitvardhan19@gmail.com</span>
           </Link>
         </div>
-        <div className="p-4 contact-content">
+        <div
+          className="p-6 contact-content rounded-xl border transition-all duration-300 hover:scale-105"
+          style={{
+            backgroundColor: "var(--card-bg)",
+            borderColor: "var(--card-border)",
+          }}
+        >
           <Link
             href="/docs/pdf/resume.pdf"
             target="_blank"
             className="text-[var(--foreground)] flex flex-col items-center justify-center"
           >
-            <FaDownload className="w-10 h-10" />
-            <span className="mt-2">Resume</span>
+            <FaDownload
+              className="w-12 h-12 mb-3"
+              style={{ color: "var(--primary)" }}
+            />
+            <span className="mt-2 font-medium">Resume</span>
           </Link>
         </div>
-        <div className="p-4 contact-content">
+        <div
+          className="p-6 contact-content rounded-xl border transition-all duration-300 hover:scale-105"
+          style={{
+            backgroundColor: "var(--card-bg)",
+            borderColor: "var(--card-border)",
+          }}
+        >
           <Link
             href="https://www.linkedin.com/in/hitvardhan/"
             target="_blank"
             className="text-[var(--foreground)] flex flex-col items-center justify-center"
           >
-            <FaLinkedin className="w-10 h-10" />
-            <span className="mt-2">LinkedIn</span>
+            <FaLinkedin
+              className="w-12 h-12 mb-3"
+              style={{ color: "var(--primary)" }}
+            />
+            <span className="mt-2 font-medium">LinkedIn</span>
           </Link>
         </div>
-        <div className="p-4 contact-content">
+        <div
+          className="p-6 contact-content rounded-xl border transition-all duration-300 hover:scale-105"
+          style={{
+            backgroundColor: "var(--card-bg)",
+            borderColor: "var(--card-border)",
+          }}
+        >
           <Link
             href="https://www.github.com/hitvardhan-singh-solanki"
             target="_blank"
             className="text-[var(--foreground)] flex flex-col items-center justify-center"
           >
-            <FaGithub className="w-10 h-10" />
-            <span className="mt-2">GitHub</span>
+            <FaGithub
+              className="w-12 h-12 mb-3"
+              style={{ color: "var(--primary)" }}
+            />
+            <span className="mt-2 font-medium">GitHub</span>
           </Link>
         </div>
       </div>

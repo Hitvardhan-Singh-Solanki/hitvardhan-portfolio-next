@@ -14,15 +14,15 @@ export default function About() {
       >
         <p className="opacity-0 animate-fadeInDelay1">
           I&apos;m a{" "}
-          <span className="font-semibold" style={{ color: "var(--secondary)" }}>
+          <span className="font-semibold" style={{ color: "var(--primary)" }}>
             Senior Full-Stack Software Engineer
           </span>{" "}
           based in{" "}
-          <span className="font-semibold" style={{ color: "var(--secondary)" }}>
+          <span className="font-semibold" style={{ color: "var(--primary)" }}>
             Barcelona, Spain
           </span>
           , with{" "}
-          <span className="font-semibold" style={{ color: "var(--secondary)" }}>
+          <span className="font-semibold" style={{ color: "var(--primary)" }}>
             a decade
           </span>{" "}
           of experience in web engineering and software development.
@@ -31,11 +31,11 @@ export default function About() {
 
         <p className="opacity-0 animate-fadeInDelay2">
           I have a passion for building innovative solutions that drive{" "}
-          <span className="font-semibold" style={{ color: "var(--secondary)" }}>
+          <span className="font-semibold" style={{ color: "var(--primary)" }}>
             user experiences
           </span>{" "}
           and{" "}
-          <span className="font-semibold" style={{ color: "var(--secondary)" }}>
+          <span className="font-semibold" style={{ color: "var(--primary)" }}>
             operational efficiency
           </span>
           . I&apos;ve contributed to high-impact projects across startups and
@@ -45,19 +45,19 @@ export default function About() {
 
         <p className="opacity-0 animate-fadeInDelay3">
           My diverse skill set includes{" "}
-          <span className="font-semibold" style={{ color: "var(--secondary)" }}>
+          <span className="font-semibold" style={{ color: "var(--primary)" }}>
             AngularJS, Node.js, Python, and ReactJS
           </span>
           , as well as expertise in{" "}
-          <span className="font-semibold" style={{ color: "var(--secondary)" }}>
+          <span className="font-semibold" style={{ color: "var(--primary)" }}>
             database management
           </span>{" "}
           with MySQL and MongoDB. I thrive in all stages of the{" "}
-          <span className="font-semibold" style={{ color: "var(--secondary)" }}>
+          <span className="font-semibold" style={{ color: "var(--primary)" }}>
             software development lifecycle
           </span>
           , delivering user-friendly applications that improve{" "}
-          <span className="font-semibold" style={{ color: "var(--secondary)" }}>
+          <span className="font-semibold" style={{ color: "var(--primary)" }}>
             customer satisfaction
           </span>{" "}
           and operational metrics.
@@ -67,11 +67,11 @@ export default function About() {
         <p className="opacity-0 animate-fadeInDelay4">
           A key achievement: leading the development of a vendor onboarding
           solution that boosted satisfaction by{" "}
-          <span className="font-semibold" style={{ color: "var(--secondary)" }}>
+          <span className="font-semibold" style={{ color: "var(--primary)" }}>
             60%
           </span>{" "}
           and saved{" "}
-          <span className="font-semibold" style={{ color: "var(--secondary)" }}>
+          <span className="font-semibold" style={{ color: "var(--primary)" }}>
             €1.5 million
           </span>
           . I also developed a customer support SDK, enhancing communication
@@ -82,11 +82,11 @@ export default function About() {
         <p className="opacity-0 animate-fadeInDelay5">
           I&apos;m passionate about leveraging technology to solve real-world
           problems while fostering a culture of{" "}
-          <span className="font-semibold" style={{ color: "var(--secondary)" }}>
+          <span className="font-semibold" style={{ color: "var(--primary)" }}>
             collaboration
           </span>{" "}
           and{" "}
-          <span className="font-semibold" style={{ color: "var(--secondary)" }}>
+          <span className="font-semibold" style={{ color: "var(--primary)" }}>
             continuous learning
           </span>
           . Outside work, I enjoy exploring new technologies and sharing
