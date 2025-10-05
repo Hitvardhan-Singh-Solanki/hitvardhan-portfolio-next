@@ -23,35 +23,41 @@ export default function MainButtons() {
 
   return (
     <>
-      <div className="flex items-center justify-center gap-4 mt-6 pt-2">
+      <div className="flex flex-wrap items-center justify-center gap-4 mt-6 pt-2">
         <Link
           href="/about"
-          className="mt-4 text-[var(--foreground)] hover:border-b hover:border-b-[var(--foreground)] px-2 py-[0.2rem] text-lg main-button opacity-0 "
+          className="mt-4 text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-3 py-2 text-lg font-medium main-button opacity-0 transition-all"
         >
           About
         </Link>
         <Link
           href="/work"
-          className="mt-4 text-[var(--foreground)] hover:border-b hover:border-b-[var(--foreground)] px-2 py-[0.2rem] text-lg main-button opacity-0 "
+          className="mt-4 text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-3 py-2 text-lg font-medium main-button opacity-0 transition-all"
         >
           Work
         </Link>
         <Link
-          href="/blogs"
-          className="mt-4 text-[var(--foreground)] hover:border-b hover:border-b-[var(--foreground)] px-2 py-[0.2rem] text-lg main-button opacity-0 hidden"
+          href="/projects"
+          className="mt-4 text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-3 py-2 text-lg font-medium main-button opacity-0 transition-all"
         >
-          Blogs
+          Projects
+        </Link>
+        <Link
+          href="/blogs"
+          className="mt-4 text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-3 py-2 text-lg font-medium main-button opacity-0 transition-all"
+        >
+          Blog
         </Link>
         <Link
           href="/certificates"
-          className="mt-4 text-[var(--foreground)] hover:border-b hover:border-b-[var(--foreground)] px-2 py-[0.2rem] text-lg main-button opacity-0"
+          className="mt-4 text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-3 py-2 text-lg font-medium main-button opacity-0 transition-all"
         >
           Certifications
         </Link>
         <Link
           href="/docs/pdf/resume.pdf"
           target="_blank"
-          className="mt-4 text-[var(--foreground)] hover:border-b hover:border-b-[var(--foreground)] px-2 py-[0.2rem] text-lg main-button opacity-0 "
+          className="mt-4 text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-3 py-2 text-lg font-medium main-button opacity-0 transition-all"
         >
           Resume
         </Link>
