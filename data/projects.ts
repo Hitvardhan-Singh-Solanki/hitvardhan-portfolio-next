@@ -1,5 +1,13 @@
 export const projects = [
   {
+    title: "Online JWT Utility",
+    link: "https://online-jwt-util.vercel.app/",
+    description:
+      "A comprehensive JWT (JSON Web Token) utility tool for encoding, decoding, and verifying tokens. Perfect for developers working with authentication and authorization.",
+    tags: ["JWT", "Authentication", "Security", "Web Tools", "TypeScript"],
+    featured: true,
+  },
+  {
     title: "Online JS Debugger",
     link: "https://online-debugger-ts.vercel.app/",
     description:
