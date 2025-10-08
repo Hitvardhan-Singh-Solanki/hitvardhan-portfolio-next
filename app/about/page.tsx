@@ -1,5 +1,6 @@
 import { Heading } from "@/components/heading/heading";
 import Link from "next/link";
+import LeetCodeStats from "@/components/leetcode-stats/leetcode-stats";
 import "./about.scss";
 
 export default function About() {
@@ -104,6 +105,9 @@ export default function About() {
             ))}
           </div>
         </div>
+
+        {/* LeetCode Stats */}
+        <LeetCodeStats username="hvs_19" />
 
         {/* Explore More Section */}
         <div className="explore-section">
