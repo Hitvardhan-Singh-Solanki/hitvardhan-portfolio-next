@@ -2,74 +2,94 @@
 
 import { Heading } from "@/components/heading/heading";
 import { certificates, credlyUrl, udemyUrl } from "@/data/certifications";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
 import Image from "next/image";
 import Link from "next/link";
-
-gsap.registerPlugin(useGSAP);
+import { ExternalLink, Award } from "lucide-react";
+import { useStaggerAnimation } from "@/lib/hooks";
+import "./certificates.scss";
 
 export default function Certificates() {
-  useGSAP(() => {
-    const tl = gsap.timeline({
-      delay: 0.25,
-      duration: 0.5,
-      ease: "power2.inOut",
-    });
-
-    tl.to(".certificate", {
-      opacity: 1,
-      y: -20,
-      stagger: 0.2,
-    });
-  });
+  useStaggerAnimation(".certificate", 0.25);
 
   return (
-    <div className="container mx-auto h-screen flex flex-col items-start justify-start pt-20">
-      <Heading>Certifications</Heading>
-      <div className="mb-10 grid grid-cols-1 md:grid-cols-2 gap-6 w-full content-center items-center justify-center text-center">
-        {certificates.map((certificate) => (
+    <div className="certificates-page">
+      <div className="container mx-auto px-4 py-20">
+        {/* Hero Section */}
+        <div className="certificates-hero">
+          <Heading>Certifications</Heading>
+          <p className="certificates-intro">
+            Professional certifications and credentials demonstrating expertise
+            in data visualization, blockchain technology, and business
+            intelligence tools.
+          </p>
+        </div>
+
+        {/* Stats */}
+        <div className="certificates-stats">
+          <div className="certificates-stat-card">
+            <div className="certificates-stat-value">45+</div>
+            <div className="certificates-stat-label">Certifications</div>
+          </div>
+          <div className="certificates-stat-card">
+            <div className="certificates-stat-value">100%</div>
+            <div className="certificates-stat-label">Verified</div>
+          </div>
+        </div>
+
+        {/* Certificates Grid */}
+        <div className="certificates-grid">
+          {certificates.map((certificate) => (
+            <Link
+              href={
+                certificate.credly
+                  ? credlyUrl + certificate.id
+                  : udemyUrl + certificate.id
+              }
+              target="_blank"
+              key={certificate.id}
+              className="certificate"
+            >
+              <div className="certificate-header">
+                <div className="certificate-icon-wrapper">
+                  <Award size={20} />
+                </div>
+                <h2 className="certificate-title">{certificate.name}</h2>
+                <ExternalLink className="certificate-external-icon" size={20} />
+              </div>
+
+              <div className="certificate-image-wrapper">
+                <Image
+                  src={certificate.src}
+                  alt={certificate.alt}
+                  width={400}
+                  height={200}
+                  className="certificate-image"
+                />
+              </div>
+
+              <p className="certificate-description">
+                {certificate.description}
+              </p>
+
+              <div className="certificate-footer">
+                <span className="certificate-platform">
+                  {certificate.credly ? "Credly" : "Udemy"}
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* View More Link */}
+        <div className="certificates-more">
           <Link
-            href={
-              certificate.credly
-                ? credlyUrl + certificate.id
-                : udemyUrl + certificate.id
-            }
+            href="https://www.linkedin.com/in/hitvardhan/details/certifications/"
             target="_blank"
-            key={certificate.id}
-            className="justify-center flex flex-col items-center text-center certificate opacity-0 p-6 rounded-xl border transition-all duration-300 hover:scale-[1.02]"
-            style={{
-              backgroundColor: "var(--card-bg)",
-              borderColor: "var(--card-border)",
-            }}
-          >
-            <figure className="my-4 flex flex-col items-center justify-center">
-              <h2 className="text-xl font-bold text-center text-[var(--foreground)] mb-4">
-                {certificate.name}
-              </h2>
-              <Image
-                src={certificate.src}
-                alt={certificate.alt}
-                width={400}
-                height={200}
-                className="rounded-lg"
-              ></Image>
-            </figure>
-            <figcaption className="text-sm text-[var(--foreground)] opacity-80 max-w-xl text-justify mt-2">
-              {certificate.description}
-            </figcaption>
-          </Link>
-        ))}
-        <div className="justify-center flex flex-col items-center text-center">
-          <Link
-            href={
-              "https://www.linkedin.com/in/hitvardhan/details/certifications/"
-            }
-            target="_blank"
-            className="hover:border-b-2 hover:border-b-[var(--primary)] px-4 py-2 font-medium transition-all"
-            style={{ color: "var(--primary)" }}
+            rel="noopener noreferrer"
+            className="certificates-more-link"
           >
             View more on LinkedIn
+            <ExternalLink size={16} />
           </Link>
         </div>
       </div>

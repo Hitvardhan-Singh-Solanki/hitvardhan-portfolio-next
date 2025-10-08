@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import centralized animations */
+@import "./animations.scss";
+
 /* Dark Theme (Default) */
 :root[data-theme="dark"] {
   --background: #000000;
