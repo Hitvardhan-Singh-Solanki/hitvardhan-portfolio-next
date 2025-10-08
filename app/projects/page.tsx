@@ -10,7 +10,9 @@ export default function Projects() {
   useStaggerAnimation(".project-card");
 
   const totalProjects = projects.length;
-  const technologies = Array.from(new Set(projects.flatMap((p) => p.tags))).length;
+  const technologies = Array.from(
+    new Set(projects.flatMap((p) => p.tags))
+  ).length;
 
   return (
     <div className="projects-page">
