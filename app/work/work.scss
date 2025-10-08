@@ -227,31 +227,54 @@
   }
 
   .experience-header {
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
     gap: 1rem;
+  }
+  
+  .experience-info {
+    flex: 1;
+    min-width: 0; // Prevents text overflow
   }
 
   .experience-logo {
     width: 50px;
     height: 50px;
+    flex-shrink: 0;
+  }
+  
+  .experience-title {
+    flex-wrap: wrap;
+    gap: 0.75rem;
   }
 
   .experience-role {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
+    word-break: break-word;
   }
 
   .experience-company {
-    font-size: 1rem;
+    font-size: 0.9375rem;
+    word-break: break-word;
+  }
+  
+  .experience-date {
+    font-size: 0.8125rem;
   }
 
   .experience-icon {
     width: 2rem;
     height: 2rem;
+    flex-shrink: 0;
 
     svg {
-      width: 1.25rem;
-      height: 1.25rem;
+      width: 1rem;
+      height: 1rem;
     }
+  }
+  
+  .job-entry {
+    padding: 1.25rem;
   }
 }
 
@@ -262,5 +285,23 @@
 
   .experience-description li {
     font-size: 0.875rem;
+  }
+  
+  .experience-logo {
+    width: 45px;
+    height: 45px;
+    padding: 0.375rem;
+  }
+  
+  .experience-role {
+    font-size: 1rem;
+  }
+  
+  .experience-company {
+    font-size: 0.875rem;
+  }
+  
+  .job-entry {
+    padding: 1rem;
   }
 }
