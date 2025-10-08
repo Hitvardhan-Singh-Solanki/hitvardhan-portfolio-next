@@ -136,9 +136,6 @@ export default async function handler(
     const hardSolved = getCount("Hard");
     const totalSolved = getCount("All");
 
-    const easyTotal = getTotalCount("Easy");
-    const mediumTotal = getTotalCount("Medium");
-    const hardTotal = getTotalCount("Hard");
     const totalQuestions = getTotalCount("All");
 
     const acceptanceRate =
