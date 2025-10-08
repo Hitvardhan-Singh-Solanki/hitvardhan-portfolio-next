@@ -22,10 +22,7 @@ export default function LeetCodeStats({ username }: { username: string }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const containerRef = useStaggerAnimation<HTMLDivElement>({
-    stagger: 0.1,
-    from: { opacity: 0, y: 30 },
-  });
+  useStaggerAnimation(".stagger-item", 0.2);
 
   useEffect(() => {
     const fetchLeetCodeStats = async () => {
@@ -125,7 +122,7 @@ export default function LeetCodeStats({ username }: { username: string }) {
   const totalPercent = (stats.totalSolved / stats.totalQuestions) * 100;
 
   return (
-    <div className="leetcode-stats-container" ref={containerRef}>
+    <div className="leetcode-stats-container">
       {/* Header */}
       <div className="leetcode-header stagger-item">
         <div className="leetcode-icon-wrapper">
