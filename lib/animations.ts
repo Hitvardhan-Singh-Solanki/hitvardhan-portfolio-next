@@ -7,6 +7,12 @@
 
 import { gsap } from "gsap";
 
+// Check if device is mobile
+const isMobileDevice = () => {
+  if (typeof window === "undefined") return false;
+  return window.innerWidth < 768;
+};
+
 // Animation durations
 export const ANIMATION_DURATIONS = {
   fast: 0.3,
@@ -109,6 +115,13 @@ export const animateStagger = (
   delay: number = ANIMATION_DELAYS.none
 ): gsap.core.Timeline => {
   const tl = createTimeline({ delay });
+
+  // Skip animations on mobile - set elements to final state immediately
+  if (isMobileDevice()) {
+    gsap.set(selector, { opacity: 1, y: 0 });
+    return tl;
+  }
+
   tl.to(selector, ANIMATION_CONFIGS.stagger);
   return tl;
 };
@@ -132,6 +145,14 @@ export const animateHero = (config?: {
   const tl = createTimeline({
     delay: ANIMATION_DELAYS.medium,
   });
+
+  // Skip animations on mobile - set elements to final state immediately
+  if (isMobileDevice()) {
+    gsap.set(dpSelector, { opacity: 1, scale: 1, y: 0 });
+    gsap.set(hrSelector, { width: "100%" });
+    gsap.set(contentSelector, { opacity: 1, height: "auto" });
+    return tl;
+  }
 
   // Expand horizontal lines
   tl.to(hrSelector, ANIMATION_CONFIGS.expandCenter.hrExpand)
@@ -170,6 +191,12 @@ export const animateMainButtons = (
     delay: ANIMATION_DELAYS.medium,
   });
 
+  // Skip animations on mobile - set elements to final state immediately
+  if (isMobileDevice()) {
+    gsap.set(selector, { opacity: 1, y: 0 });
+    return tl;
+  }
+
   tl.to(selector, {
     opacity: 1,
     y: -20,
@@ -191,6 +218,12 @@ export const animateCertificates = (
   const tl = createTimeline({
     delay: ANIMATION_DELAYS.medium,
   });
+
+  // Skip animations on mobile - set elements to final state immediately
+  if (isMobileDevice()) {
+    gsap.set(selector, { opacity: 1, y: 0 });
+    return tl;
+  }
 
   tl.to(selector, {
     opacity: 1,

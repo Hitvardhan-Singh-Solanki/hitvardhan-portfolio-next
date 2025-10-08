@@ -1,48 +1,79 @@
 "use client";
 
 import Link from "next/link";
-import { useButtonAnimation } from "@/lib/hooks";
+import { useEffect, useState } from "react";
 
 export default function MainButtons() {
-  useButtonAnimation();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Run desktop animations
+  useEffect(() => {
+    if (!isMobile && typeof window !== "undefined") {
+      import("@/lib/animations").then(({ animateMainButtons }) => {
+        animateMainButtons(".main-button");
+      });
+    }
+  }, [isMobile]);
 
   return (
     <>
-      <div className="flex flex-wrap items-center justify-center gap-4 mt-6 pt-2">
+      <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 mt-4 pt-2">
         <Link
           href="/about"
-          className="mt-4 text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-3 py-2 text-lg font-medium main-button opacity-0 transition-all"
+          className={`text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-2 md:px-3 py-2 text-base md:text-lg font-medium main-button ${
+            isMobile ? "opacity-100" : "opacity-0 transition-all"
+          }`}
         >
           About
         </Link>
         <Link
           href="/work"
-          className="mt-4 text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-3 py-2 text-lg font-medium main-button opacity-0 transition-all"
+          className={`text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-2 md:px-3 py-2 text-base md:text-lg font-medium main-button ${
+            isMobile ? "opacity-100" : "opacity-0 transition-all"
+          }`}
         >
           Work
         </Link>
         <Link
           href="/projects"
-          className="mt-4 text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-3 py-2 text-lg font-medium main-button opacity-0 transition-all"
+          className={`text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-2 md:px-3 py-2 text-base md:text-lg font-medium main-button ${
+            isMobile ? "opacity-100" : "opacity-0 transition-all"
+          }`}
         >
           Projects
         </Link>
         <Link
           href="/blogs"
-          className="mt-4 text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-3 py-2 text-lg font-medium main-button opacity-0 transition-all"
+          className={`text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-2 md:px-3 py-2 text-base md:text-lg font-medium main-button ${
+            isMobile ? "opacity-100" : "opacity-0 transition-all"
+          }`}
         >
           Blog
         </Link>
         <Link
           href="/certificates"
-          className="mt-4 text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-3 py-2 text-lg font-medium main-button opacity-0 transition-all"
+          className={`text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-2 md:px-3 py-2 text-base md:text-lg font-medium main-button ${
+            isMobile ? "opacity-100" : "opacity-0 transition-all"
+          }`}
         >
           Certifications
         </Link>
         <Link
           href="/docs/pdf/resume.pdf"
           target="_blank"
-          className="mt-4 text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-3 py-2 text-lg font-medium main-button opacity-0 transition-all"
+          className={`text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-2 md:px-3 py-2 text-base md:text-lg font-medium main-button ${
+            isMobile ? "opacity-100" : "opacity-0 transition-all"
+          }`}
         >
           Resume
         </Link>

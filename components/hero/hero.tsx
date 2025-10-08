@@ -3,10 +3,29 @@
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import MainButtons from "../main-buttons/main-buttons";
-import { useHeroAnimation } from "@/lib/hooks";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
-  useHeroAnimation();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Run desktop animations only
+  useEffect(() => {
+    if (!isMobile && typeof window !== "undefined") {
+      import("@/lib/animations").then(({ animateHero }) => {
+        animateHero();
+      });
+    }
+  }, [isMobile]);
 
   return (
     <div className="h-screen relative container mx-auto px-4 lg:px-0">
@@ -17,20 +36,34 @@ export default function Hero() {
             alt="Hero"
             width={200}
             height={200}
-            className="my-4 border-4 rounded-full opacity-0 dp shadow-lg"
+            className={`my-4 border-4 rounded-full dp shadow-lg ${
+              isMobile ? "opacity-100" : "opacity-0"
+            }`}
             style={{ borderColor: "var(--primary)" }}
           />
-          <hr className="w-0 h-1 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)]" />
-          <div className="main-content my-6 opacity-0 flex flex-col items-center justify-center text-center">
-            <h1 className="leading-relaxed mb-2">
+          <hr
+            className={`h-1 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] ${
+              isMobile ? "w-full max-w-xs mx-auto" : "w-0"
+            }`}
+          />
+          <div
+            className={`main-content my-6 flex flex-col items-center justify-center text-center ${
+              isMobile ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <h1 className="leading-relaxed mb-2 text-3xl md:text-5xl">
               Hi, I&apos;m{" "}
               <span className="name px-2 font-bold">Hitvardhan</span>
             </h1>
-            <h2 className="text-xl md:text-2xl font-medium opacity-80 tracking-wide">
+            <h2 className="text-lg md:text-2xl font-medium opacity-80 tracking-wide">
               FULL STACK DEVELOPER
             </h2>
           </div>
-          <hr className="w-0 h-1 bg-gradient-to-r from-[var(--secondary)] to-[var(--primary)]" />
+          <hr
+            className={`h-1 bg-gradient-to-r from-[var(--secondary)] to-[var(--primary)] ${
+              isMobile ? "w-full max-w-xs mx-auto" : "w-0"
+            }`}
+          />
           <MainButtons />
         </div>
       </div>
