@@ -1,27 +1,13 @@
 "use client";
 
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
 import { Heading } from "@/components/heading/heading";
 import ProjectCard from "@/components/project-card/project-card";
 import { projects } from "@/data/projects";
+import { useStaggerAnimation } from "@/lib/hooks";
 import "./projects.scss";
 
-gsap.registerPlugin(useGSAP);
-
 export default function Projects() {
-  useGSAP(() => {
-    const tl = gsap.timeline({
-      duration: 0.75,
-      ease: "power2.inOut",
-    });
-
-    tl.to(".project-card", {
-      y: -10,
-      opacity: 1,
-      stagger: 0.2,
-    });
-  });
+  useStaggerAnimation(".project-card");
 
   const totalProjects = projects.length;
   const technologies = [...new Set(projects.flatMap((p) => p.tags))].length;

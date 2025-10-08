@@ -2,29 +2,14 @@
 
 import { Heading } from "@/components/heading/heading";
 import { certificates, credlyUrl, udemyUrl } from "@/data/certifications";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
 import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink, Award } from "lucide-react";
+import { useStaggerAnimation } from "@/lib/hooks";
 import "./certificates.scss";
 
-gsap.registerPlugin(useGSAP);
-
 export default function Certificates() {
-  useGSAP(() => {
-    const tl = gsap.timeline({
-      delay: 0.25,
-      duration: 0.5,
-      ease: "power2.inOut",
-    });
-
-    tl.to(".certificate", {
-      opacity: 1,
-      y: -20,
-      stagger: 0.2,
-    });
-  });
+  useStaggerAnimation(".certificate", 0.25);
 
   return (
     <div className="certificates-page">

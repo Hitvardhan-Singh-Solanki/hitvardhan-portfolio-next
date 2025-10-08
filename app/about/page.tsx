@@ -3,8 +3,10 @@ import Link from "next/link";
 import "./about.scss";
 
 export default function About() {
+  const totalYearsExperience = new Date().getFullYear() - 2016;
+
   const stats = [
-    { value: "10+", label: "Years Experience" },
+    { value: `${totalYearsExperience}+`, label: "Years Experience" },
     { value: "60%", label: "Satisfaction Boost" },
     { value: "€1.5M", label: "Cost Savings" },
     { value: "20+", label: "Projects Delivered" },

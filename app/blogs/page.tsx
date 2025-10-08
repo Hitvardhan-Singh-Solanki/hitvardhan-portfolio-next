@@ -3,25 +3,11 @@
 import { Heading } from "@/components/heading/heading";
 import { blogs } from "@/data/blogs";
 import { BlogCard } from "@/components/blog/blog-card";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
+import { useStaggerAnimation } from "@/lib/hooks";
 import "./blogs.scss";
 
-gsap.registerPlugin(useGSAP);
-
 export default function Blogs() {
-  useGSAP(() => {
-    const tl = gsap.timeline({
-      duration: 0.75,
-      ease: "power2.inOut",
-    });
-
-    tl.to(".blog-card", {
-      y: -10,
-      opacity: 1,
-      stagger: 0.2,
-    });
-  });
+  useStaggerAnimation(".blog-card");
 
   const totalBlogs = blogs.length;
   const allTopics = Array.from(new Set(blogs.flatMap((b) => b.tags)));

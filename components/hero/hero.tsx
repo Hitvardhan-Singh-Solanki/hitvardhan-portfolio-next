@@ -1,50 +1,12 @@
 "use client";
 
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import MainButtons from "../main-buttons/main-buttons";
-gsap.registerPlugin(useGSAP);
+import { useHeroAnimation } from "@/lib/hooks";
 
 export default function Hero() {
-  useGSAP(() => {
-    const tl = gsap.timeline({
-      delay: 0.25,
-      duration: 0.5,
-      ease: "power2.inOut",
-    });
-
-    tl.to(".expand-center > hr", {
-      width: "100%",
-    })
-      .from(".main-content", {
-        height: "0px",
-      })
-      .to(".main-content", {
-        height: "auto",
-      })
-      .to(".main-content", {
-        opacity: 1,
-      });
-
-    tl.to(".dp", {
-      opacity: 1,
-      scale: 0.8,
-      y: -10,
-    });
-
-    const tl2 = gsap.timeline({
-      yoyo: true,
-      repeat: -1,
-      ease: "power2.inOut",
-      duration: 0.5,
-    });
-
-    tl2.to(".go-down", {
-      y: 15,
-    });
-  });
+  useHeroAnimation();
 
   return (
     <div className="h-screen relative container mx-auto px-4 lg:px-0">

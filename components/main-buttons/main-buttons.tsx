@@ -1,25 +1,10 @@
 "use client";
 
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
 import Link from "next/link";
-gsap.registerPlugin(useGSAP);
+import { useButtonAnimation } from "@/lib/hooks";
 
 export default function MainButtons() {
-  useGSAP(() => {
-    const tl = gsap.timeline({
-      delay: 0.25,
-      duration: 0.75,
-      ease: "power2.inOut",
-    });
-
-    tl.to(".main-button", {
-      opacity: 1,
-      y: -20,
-      stagger: 0.2,
-      delay: 1,
-    });
-  });
+  useButtonAnimation();
 
   return (
     <>
