@@ -19,7 +19,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="flex justify-between items-center container mx-auto py-5 px-4 lg:px-0">
+    <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50 flex justify-between items-center container mx-auto py-5 px-4 lg:px-0">
       <div className="flex flex-grow">
         {!isHomePage && (
           <button
