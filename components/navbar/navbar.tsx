@@ -4,11 +4,13 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import ThemeToggle from "../theme-toggle/theme-toggle";
 import { useHoverAnimation } from "@/lib/hooks/animations";
+import "./navbar.scss";
 
 export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   const isHomePage = pathname === "/";
+  const isContactPage = pathname === "/contact";
 
   const backAnimation = useHoverAnimation({ scale: 1.05, duration: 0.2 });
 
@@ -51,7 +53,7 @@ export default function Navbar() {
       <div className="flex items-center gap-3">
         <ThemeToggle />
         <Link href="/contact">
-          <button className="contact-button">
+          <button className={`contact-button ${isContactPage ? "active" : ""}`}>
             <span className="flex items-center gap-2">
               <svg
                 width="16"
