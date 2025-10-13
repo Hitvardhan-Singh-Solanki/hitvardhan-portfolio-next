@@ -4,6 +4,7 @@ import { Heading } from "@/components/heading/heading";
 import { blogs } from "@/data/blogs";
 import { BlogCard } from "@/components/blog/blog-card";
 import { useStaggerAnimation } from "@/lib/hooks";
+import { StatsCard } from "@/components/ui/stats-card";
 import "./blogs.scss";
 
 export default function Blogs() {
@@ -27,18 +28,9 @@ export default function Blogs() {
 
         {/* Stats */}
         <div className="blogs-stats">
-          <div className="blogs-stat-card">
-            <div className="blogs-stat-value">{totalBlogs}</div>
-            <div className="blogs-stat-label">Articles</div>
-          </div>
-          <div className="blogs-stat-card">
-            <div className="blogs-stat-value">{totalTopics}</div>
-            <div className="blogs-stat-label">Topics</div>
-          </div>
-          <div className="blogs-stat-card">
-            <div className="blogs-stat-value">Medium</div>
-            <div className="blogs-stat-label">Platform</div>
-          </div>
+          <StatsCard value={totalBlogs.toString()} label="Articles" />
+          <StatsCard value={totalTopics.toString()} label="Topics" />
+          <StatsCard value="Medium" label="Platform" />
         </div>
 
         {/* Blogs Grid */}

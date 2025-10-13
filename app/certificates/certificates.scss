@@ -29,42 +29,7 @@
   animation: fadeInUp 0.6s ease-out 0.2s both;
 }
 
-.certificates-stat-card {
-  background-color: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 1rem;
-  padding: 2rem 1.5rem;
-  text-align: center;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover {
-    transform: translateY(-4px);
-    border-color: var(--primary);
-    box-shadow: 0 12px 24px -10px var(--shadow);
-
-    .certificates-stat-value {
-      color: var(--primary);
-      transform: scale(1.05);
-    }
-  }
-}
-
-.certificates-stat-value {
-  font-size: var(--text-4xl);
-  font-weight: var(--font-bold);
-  color: var(--foreground);
-  margin-bottom: 0.5rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  line-height: 1;
-}
-
-.certificates-stat-label {
-  font-size: var(--text-sm);
-  color: var(--secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: var(--font-medium);
-}
+/* Certificates stat card styles are now handled by shadcn/ui StatsCard component */
 
 /* Certificates Grid */
 .certificates-grid {
@@ -259,13 +224,7 @@
     margin-bottom: 3rem;
   }
 
-  .certificates-stat-value {
-    font-size: var(--text-3xl);
-  }
-
-  .certificates-stat-label {
-    font-size: var(--text-xs);
-  }
+  /* Certificates stat card responsive styles are now handled by shadcn/ui StatsCard component */
 
   .certificates-grid {
     grid-template-columns: 1fr;

@@ -2,6 +2,8 @@ export interface MainButton {
   href: string;
   label: string;
   target?: string;
+  download?: boolean;
+  icon?: string;
 }
 
 export const mainButtons: MainButton[] = [
@@ -10,5 +12,10 @@ export const mainButtons: MainButton[] = [
   { href: "/projects", label: "Projects" },
   { href: "/blogs", label: "Blog" },
   { href: "/certificates", label: "Certifications" },
-  { href: "/docs/pdf/resume.pdf", label: "Resume", target: "_blank" },
+  {
+    href: "/docs/pdf/resume.pdf",
+    label: "Resume",
+    download: true,
+    icon: "download",
+  },
 ];

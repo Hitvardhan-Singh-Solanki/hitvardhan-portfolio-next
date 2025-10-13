@@ -5,6 +5,7 @@ import ProjectCard from "@/components/project-card/project-card";
 import { projects } from "@/data/projects";
 import { useStaggerAnimation } from "@/lib/hooks/animations";
 import { useEffect } from "react";
+import { StatsCard } from "@/components/ui/stats-card";
 import "./projects.scss";
 
 export default function Projects() {
@@ -48,18 +49,9 @@ export default function Projects() {
 
         {/* Stats */}
         <div className="projects-stats">
-          <div className="projects-stat-card">
-            <div className="projects-stat-value">{totalProjects}</div>
-            <div className="projects-stat-label">Projects</div>
-          </div>
-          <div className="projects-stat-card">
-            <div className="projects-stat-value">{technologies}</div>
-            <div className="projects-stat-label">Technologies</div>
-          </div>
-          <div className="projects-stat-card">
-            <div className="projects-stat-value">100%</div>
-            <div className="projects-stat-label">Open Source</div>
-          </div>
+          <StatsCard value={totalProjects.toString()} label="Projects" />
+          <StatsCard value={technologies.toString()} label="Technologies" />
+          <StatsCard value="100%" label="Open Source" />
         </div>
 
         {/* Projects Grid */}

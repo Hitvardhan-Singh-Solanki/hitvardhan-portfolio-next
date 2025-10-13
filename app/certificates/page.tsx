@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink, Award } from "lucide-react";
 import { useStaggerAnimation } from "@/lib/hooks";
+import { StatsCard } from "@/components/ui/stats-card";
 import "./certificates.scss";
 
 export default function Certificates() {
@@ -26,14 +27,8 @@ export default function Certificates() {
 
         {/* Stats */}
         <div className="certificates-stats">
-          <div className="certificates-stat-card">
-            <div className="certificates-stat-value">45+</div>
-            <div className="certificates-stat-label">Certifications</div>
-          </div>
-          <div className="certificates-stat-card">
-            <div className="certificates-stat-value">100%</div>
-            <div className="certificates-stat-label">Verified</div>
-          </div>
+          <StatsCard value="45+" label="Certifications" />
+          <StatsCard value="100%" label="Verified" />
         </div>
 
         {/* Certificates Grid */}

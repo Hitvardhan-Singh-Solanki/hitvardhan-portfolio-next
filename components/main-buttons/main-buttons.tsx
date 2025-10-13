@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 import { mainButtons } from "@/data/main-buttons";
 import { gsap } from "gsap";
+import { Download } from "lucide-react";
 import "./main-buttons.scss";
 
 export default function MainButtons() {
@@ -69,16 +70,26 @@ export default function MainButtons() {
         {mainButtons.map((button, index) => (
           <Link
             key={index}
-            ref={(el) => (buttonRefs.current[index] = el)}
+            ref={(el) => {
+              buttonRefs.current[index] = el;
+            }}
             href={button.href}
-            target={button.target}
+            target={button.download ? undefined : button.target}
+            download={
+              button.download
+                ? "Hitvardhan_Singh_Solanki_Resume.pdf"
+                : undefined
+            }
             className={`text-[var(--foreground)] px-2 md:px-3 py-2 text-base md:text-lg font-medium main-button ${
               isMobile ? "opacity-100" : "opacity-0"
             }`}
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={() => handleMouseLeave(index)}
           >
-            <span className="main-button__text">{button.label}</span>
+            <span className="main-button__text flex items-center gap-2">
+              {button.label}
+              {button.icon === "download" && <Download size={16} />}
+            </span>
             <div className="main-button__border"></div>
           </Link>
         ))}

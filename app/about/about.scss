@@ -34,44 +34,7 @@
   animation: fadeInUp 0.6s ease-out 0.2s both;
 }
 
-.stat-card {
-  background-color: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 1rem;
-  padding: 2rem 1.5rem;
-  text-align: center;
-  /* Transition handled by GSAP */
-  position: relative;
-  overflow: hidden;
-
-  &:hover {
-    transform: translateY(-4px);
-    border-color: var(--primary);
-    box-shadow: 0 12px 24px -10px var(--shadow);
-
-    .stat-value {
-      color: var(--primary);
-      transform: scale(1.05);
-    }
-  }
-}
-
-.stat-value {
-  font-size: var(--text-4xl);
-  font-weight: var(--font-bold);
-  color: var(--foreground);
-  margin-bottom: 0.5rem;
-  /* Transition handled by GSAP */
-  line-height: 1;
-}
-
-.stat-label {
-  font-size: var(--text-sm);
-  color: var(--secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: var(--font-medium);
-}
+/* Stats card styles are now handled by shadcn/ui StatsCard component */
 
 /* Bio Section */
 .bio-section {
@@ -325,13 +288,7 @@
     margin-bottom: 3rem;
   }
   
-  .stat-value {
-    font-size: var(--text-3xl);
-  }
-
-  .stat-label {
-    font-size: var(--text-xs);
-  }
+  /* Stat card responsive styles are now handled by shadcn/ui StatsCard component */
   
   .section-title {
     font-size: var(--text-2xl);
@@ -383,9 +340,7 @@
     grid-template-columns: 1fr;
   }
   
-  .stat-card {
-    padding: 1.5rem;
-  }
+  /* Stat card responsive styles are now handled by shadcn/ui StatsCard component */
   
   .bio-content {
     padding: 1.25rem;

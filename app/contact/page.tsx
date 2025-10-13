@@ -4,7 +4,14 @@ import Link from "next/link";
 import { FaLinkedin, FaGithub, FaDownload, FaEnvelope } from "react-icons/fa6";
 
 export default function Contact() {
-  const contactMethods = [
+  const contactMethods: Array<{
+    href: string;
+    icon: any;
+    label: string;
+    value: string;
+    external: boolean;
+    download?: boolean;
+  }> = [
     {
       href: "mailto:hitvardhan19@gmail.com",
       icon: FaEnvelope,
@@ -31,7 +38,8 @@ export default function Contact() {
       icon: FaDownload,
       label: "Resume",
       value: "Download PDF",
-      external: true,
+      external: false,
+      download: true,
     },
   ];
 
@@ -60,6 +68,11 @@ export default function Contact() {
                 href={method.href}
                 target={method.external ? "_blank" : undefined}
                 rel={method.external ? "noopener noreferrer" : undefined}
+                download={
+                  method.download
+                    ? "Hitvardhan_Singh_Solanki_Resume.pdf"
+                    : undefined
+                }
                 className="contact-card group"
               >
                 <div className="contact-card-inner">

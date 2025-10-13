@@ -1,6 +1,7 @@
 import { Heading } from "@/components/heading/heading";
 import Link from "next/link";
 import LeetCodeStats from "@/components/leetcode-stats/leetcode-stats";
+import { StatsCard } from "@/components/ui/stats-card";
 import "./about.scss";
 
 export default function About() {
@@ -48,10 +49,7 @@ export default function About() {
         {/* Stats Grid */}
         <div className="stats-grid">
           {stats.map((stat, index) => (
-            <div key={index} className="stat-card">
-              <div className="stat-value">{stat.value}</div>
-              <div className="stat-label">{stat.label}</div>
-            </div>
+            <StatsCard key={index} value={stat.value} label={stat.label} />
           ))}
         </div>
 
