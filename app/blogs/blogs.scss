@@ -1,5 +1,5 @@
 .blogs-page {
-  font-family: var(--font-montserat);
+  font-family: var(--font-primary);
   min-height: 100vh;
 }
 
@@ -50,8 +50,8 @@
 }
 
 .blogs-stat-value {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: var(--text-4xl);
+  font-weight: var(--font-bold);
   color: var(--foreground);
   margin-bottom: 0.5rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -59,11 +59,11 @@
 }
 
 .blogs-stat-label {
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
   color: var(--secondary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  font-weight: 500;
+  font-weight: var(--font-medium);
 }
 
 /* Blogs Grid */
@@ -124,8 +124,8 @@
 }
 
 .blog-title {
-  font-size: 1.375rem;
-  font-weight: 600;
+  font-size: var(--text-2xl);
+  font-weight: var(--font-semibold);
   color: var(--foreground);
   margin: 0;
   transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -152,7 +152,7 @@
   display: flex;
   align-items: center;
   gap: 0.375rem;
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
   color: var(--secondary);
 
   svg {
@@ -163,7 +163,7 @@
 
 /* Blog Description */
 .blog-description {
-  font-size: 0.9375rem;
+  font-size: var(--text-base);
   line-height: 1.7;
   color: var(--foreground);
   opacity: 0.85;
@@ -185,9 +185,9 @@
   background-color: var(--card-hover);
   border: 1px solid var(--card-border);
   border-radius: 2rem;
-  font-size: 0.8125rem;
+  font-size: var(--text-xs);
   color: var(--secondary);
-  font-weight: 500;
+  font-weight: var(--font-medium);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -198,7 +198,7 @@
   }
 
   .blogs-intro {
-    font-size: 1rem;
+    font-size: var(--text-base);
   }
 
   .blogs-stats {
@@ -208,11 +208,11 @@
   }
 
   .blogs-stat-value {
-    font-size: 2rem;
+    font-size: var(--text-3xl);
   }
 
   .blogs-stat-label {
-    font-size: 0.75rem;
+    font-size: var(--text-xs);
   }
 
   .blogs-grid {
@@ -225,11 +225,11 @@
   }
 
   .blog-title {
-    font-size: 1.25rem;
+    font-size: var(--text-xl);
   }
 
   .blog-description {
-    font-size: 0.875rem;
+    font-size: var(--text-sm);
   }
 }
 
@@ -239,7 +239,7 @@
   }
 
   .blog-tag {
-    font-size: 0.75rem;
+    font-size: var(--text-xs);
     padding: 0.375rem 0.75rem;
   }
 }

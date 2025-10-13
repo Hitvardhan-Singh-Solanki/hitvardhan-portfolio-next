@@ -1,5 +1,5 @@
 .work-page {
-  font-family: var(--font-montserat);
+  font-family: var(--font-primary);
   min-height: 100vh;
 }
 
@@ -35,7 +35,7 @@
   border-radius: 1rem;
   padding: 2rem 1.5rem;
   text-align: center;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Transition handled by GSAP */
 
   &:hover {
     transform: translateY(-4px);
@@ -50,20 +50,20 @@
 }
 
 .work-stat-value {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: var(--text-4xl);
+  font-weight: var(--font-bold);
   color: var(--foreground);
   margin-bottom: 0.5rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Transition handled by GSAP */
   line-height: 1;
 }
 
 .work-stat-label {
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
   color: var(--secondary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  font-weight: 500;
+  font-weight: var(--font-medium);
 }
 
 /* Experience Timeline */
@@ -80,7 +80,7 @@
   border: 1px solid var(--card-border);
   border-radius: 1rem;
   padding: 2rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Transition handled by GSAP */
   opacity: 0;
   position: relative;
 
@@ -121,11 +121,11 @@
   border: 1px solid var(--card-border);
   border-radius: 0.75rem;
   flex-shrink: 0;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Transition handled by GSAP */
 
   svg {
     color: var(--foreground);
-    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Transition handled by GSAP */
   }
 }
 
@@ -139,24 +139,24 @@
 }
 
 .experience-role {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: var(--text-2xl);
+  font-weight: var(--font-semibold);
   color: var(--foreground);
   margin: 0;
   line-height: 1.3;
 }
 
 .experience-company {
-  font-size: 1.125rem;
-  font-weight: 600;
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
   color: var(--primary);
   margin-bottom: 0.25rem;
 }
 
 .experience-date {
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
   color: var(--secondary);
-  font-weight: 500;
+  font-weight: var(--font-medium);
 }
 
 .experience-logo {
@@ -179,7 +179,7 @@
 
   li {
     color: var(--foreground);
-    font-size: 0.9375rem;
+    font-size: var(--text-base);
     line-height: 1.7;
     padding-left: 1.5rem;
     position: relative;
@@ -189,7 +189,7 @@
       position: absolute;
       left: 0;
       color: var(--primary);
-      font-weight: 600;
+      font-weight: var(--font-semibold);
     }
   }
 }
@@ -201,7 +201,7 @@
   }
 
   .work-intro {
-    font-size: 1rem;
+    font-size: var(--text-base);
   }
 
   .work-stats {
@@ -211,11 +211,11 @@
   }
 
   .work-stat-value {
-    font-size: 2rem;
+    font-size: var(--text-3xl);
   }
 
   .work-stat-label {
-    font-size: 0.75rem;
+    font-size: var(--text-xs);
   }
 
   .work-experience {
@@ -249,17 +249,17 @@
   }
 
   .experience-role {
-    font-size: 1.125rem;
+    font-size: var(--text-lg);
     word-break: break-word;
   }
 
   .experience-company {
-    font-size: 0.9375rem;
+    font-size: var(--text-base);
     word-break: break-word;
   }
-  
+
   .experience-date {
-    font-size: 0.8125rem;
+    font-size: var(--text-xs);
   }
 
   .experience-icon {
@@ -284,7 +284,7 @@
   }
 
   .experience-description li {
-    font-size: 0.875rem;
+    font-size: var(--text-sm);
   }
   
   .experience-logo {
@@ -294,11 +294,11 @@
   }
   
   .experience-role {
-    font-size: 1rem;
+    font-size: var(--text-base);
   }
-  
+
   .experience-company {
-    font-size: 0.875rem;
+    font-size: var(--text-sm);
   }
   
   .job-entry {

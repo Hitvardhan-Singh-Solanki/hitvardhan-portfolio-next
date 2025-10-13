@@ -1,5 +1,5 @@
 .certificates-page {
-  font-family: var(--font-montserat);
+  font-family: var(--font-primary);
   min-height: 100vh;
 }
 
@@ -50,8 +50,8 @@
 }
 
 .certificates-stat-value {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: var(--text-4xl);
+  font-weight: var(--font-bold);
   color: var(--foreground);
   margin-bottom: 0.5rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -59,11 +59,11 @@
 }
 
 .certificates-stat-label {
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
   color: var(--secondary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  font-weight: 500;
+  font-weight: var(--font-medium);
 }
 
 /* Certificates Grid */
@@ -143,8 +143,8 @@
 }
 
 .certificate-title {
-  font-size: 1.375rem;
-  font-weight: 600;
+  font-size: var(--text-2xl);
+  font-weight: var(--font-semibold);
   color: var(--foreground);
   margin: 0;
   transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -181,7 +181,7 @@
 
 /* Certificate Description */
 .certificate-description {
-  font-size: 0.9375rem;
+  font-size: var(--text-base);
   line-height: 1.7;
   color: var(--foreground);
   opacity: 0.85;
@@ -202,9 +202,9 @@
   background-color: var(--card-hover);
   border: 1px solid var(--card-border);
   border-radius: 2rem;
-  font-size: 0.8125rem;
+  font-size: var(--text-xs);
   color: var(--secondary);
-  font-weight: 500;
+  font-weight: var(--font-medium);
 }
 
 /* View More Section */
@@ -222,7 +222,7 @@
   border: 1px solid var(--card-border);
   border-radius: 0.75rem;
   color: var(--primary);
-  font-weight: 600;
+  font-weight: var(--font-semibold);
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -250,7 +250,7 @@
   }
 
   .certificates-intro {
-    font-size: 1rem;
+    font-size: var(--text-base);
   }
 
   .certificates-stats {
@@ -260,11 +260,11 @@
   }
 
   .certificates-stat-value {
-    font-size: 2rem;
+    font-size: var(--text-3xl);
   }
 
   .certificates-stat-label {
-    font-size: 0.75rem;
+    font-size: var(--text-xs);
   }
 
   .certificates-grid {
@@ -278,11 +278,11 @@
   }
 
   .certificate-title {
-    font-size: 1.25rem;
+    font-size: var(--text-xl);
   }
 
   .certificate-description {
-    font-size: 0.875rem;
+    font-size: var(--text-sm);
   }
 
   .certificate-icon-wrapper {
@@ -308,7 +308,7 @@
 
   .certificates-more-link {
     padding: 0.875rem 1.5rem;
-    font-size: 0.875rem;
+    font-size: var(--text-sm);
   }
 }
 

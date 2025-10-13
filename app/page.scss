@@ -1,56 +1,5 @@
 .home-page {
   position: relative;
   min-height: 100vh;
-  
-  // Background only on desktop
-  @media (min-width: 768px) {
-    background-image: url('/img/jpg/main-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    
-    // Tinted overlay
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
-  }
-  
-  // Make sure content is above the overlay
-  > * {
-    position: relative;
-    z-index: 1;
-  }
-}
-
-// Dark theme - dark tint overlay (desktop only)
-@media (min-width: 768px) {
-  :root[data-theme="dark"] .home-page::before {
-    background: linear-gradient(
-      135deg,
-      rgba(0, 0, 0, 0.7) 0%,
-      rgba(0, 0, 0, 0.6) 50%,
-      rgba(0, 0, 0, 0.7) 100%
-    );
-  }
-}
-
-// Light theme - lighter tint overlay (desktop only)
-@media (min-width: 768px) {
-  :root[data-theme="light"] .home-page::before {
-    background: linear-gradient(
-      135deg,
-      rgba(229, 229, 229, 0.75) 0%,
-      rgba(229, 229, 229, 0.65) 50%,
-      rgba(229, 229, 229, 0.75) 100%
-    );
-  }
 }
 

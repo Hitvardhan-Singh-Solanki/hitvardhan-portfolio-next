@@ -1,0 +1,17 @@
+.main-button {
+  position: relative;
+  
+  &__text {
+    position: relative;
+    z-index: 10;
+  }
+  
+  &__border {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+  }
+}

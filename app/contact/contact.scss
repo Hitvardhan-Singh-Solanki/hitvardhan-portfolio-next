@@ -1,5 +1,5 @@
 .contact-page {
-  font-family: var(--font-montserat);
+  font-family: var(--font-primary);
 }
 
 /* Hero Section */
@@ -124,8 +124,8 @@
 }
 
 .contact-label {
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
   color: var(--foreground);
   margin-bottom: 0.25rem;
   transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -134,10 +134,10 @@
 }
 
 .contact-value {
-  font-size: 0.8125rem;
+  font-size: var(--text-xs);
   color: var(--secondary);
   margin: 0;
-  font-weight: 400;
+  font-weight: var(--font-normal);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -156,14 +156,14 @@
     color: var(--background);
     padding: 0.5rem 0.75rem;
     border-radius: 0.5rem;
-    font-size: 0.8125rem;
+    font-size: var(--text-xs);
     white-space: nowrap;
     opacity: 0;
     pointer-events: none;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1000;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    font-weight: 500;
+    font-weight: var(--font-medium);
   }
   
   /* Tooltip arrow */
@@ -227,13 +227,13 @@
 }
 
 .status-text {
-  font-size: 0.9375rem;
-  font-weight: 600;
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
   color: var(--foreground);
 }
 
 .availability-description {
-  font-size: 0.9375rem;
+  font-size: var(--text-base);
   color: var(--secondary);
   margin: 0;
   line-height: 1.6;
@@ -247,7 +247,7 @@
   }
   
   .contact-subtitle {
-    font-size: 1rem;
+    font-size: var(--text-base);
     margin-top: 1rem;
   }
   
@@ -272,7 +272,7 @@
   }
   
   .contact-value {
-    font-size: 0.875rem;
+    font-size: var(--text-sm);
   }
   
   .contact-availability {
@@ -286,6 +286,6 @@
   }
   
   .contact-value {
-    font-size: 0.8125rem;
+    font-size: var(--text-xs);
   }
 }

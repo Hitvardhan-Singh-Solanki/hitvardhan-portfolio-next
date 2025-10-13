@@ -11,7 +11,7 @@ export default function NotFound() {
       <div className="flex items-center justify-center gap-4">
         <Link
           href="/"
-          className="inline-block bg-foreground text-background px-4 py-2 rounded-md font-medium hover:bg-foreground/50 transition-all"
+          className="inline-block bg-foreground text-background px-4 py-2 rounded-md font-medium hover:bg-foreground/50"
         >
           Go back Home!
         </Link>

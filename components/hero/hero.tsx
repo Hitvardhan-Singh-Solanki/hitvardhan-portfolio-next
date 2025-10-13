@@ -42,9 +42,8 @@ export default function Hero() {
             style={{ borderColor: "var(--primary)" }}
           />
           <hr
-            className={`h-1 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] ${
-              isMobile ? "w-full max-w-xs mx-auto" : "w-0"
-            }`}
+            className={`h-1 ${isMobile ? "w-full max-w-xs mx-auto" : "w-0"}`}
+            style={{ backgroundColor: "var(--primary)" }}
           />
           <div
             className={`main-content my-6 flex flex-col items-center justify-center text-center ${
@@ -60,15 +59,14 @@ export default function Hero() {
             </h2>
           </div>
           <hr
-            className={`h-1 bg-gradient-to-r from-[var(--secondary)] to-[var(--primary)] ${
-              isMobile ? "w-full max-w-xs mx-auto" : "w-0"
-            }`}
+            className={`h-1 ${isMobile ? "w-full max-w-xs mx-auto" : "w-0"}`}
+            style={{ backgroundColor: "var(--primary)" }}
           />
           <MainButtons />
         </div>
       </div>
       <div
-        className="hidden md:flex items-start justify-center col-span-5 gap-4 fixed bottom-20 right-10 cursor-pointer h-10 w-6 border-2 rounded-full transition-colors hover:border-[var(--primary)]"
+        className="hidden md:flex items-start justify-center col-span-5 gap-4 fixed bottom-20 right-10 cursor-pointer h-10 w-6 border-2 rounded-full hover:border-[var(--primary)]"
         style={{ borderColor: "var(--foreground)" }}
         onClick={() => {
           window.scrollTo({

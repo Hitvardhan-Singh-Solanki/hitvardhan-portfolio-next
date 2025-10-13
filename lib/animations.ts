@@ -6,6 +6,12 @@
  */
 
 import { gsap } from "gsap";
+import {
+  useHoverAnimation,
+  usePageAnimation,
+  useStaggerAnimation,
+  useThemeAnimation,
+} from "./hooks/animations";
 
 // Check if device is mobile
 const isMobileDevice = () => {
@@ -234,4 +240,135 @@ export const animateCertificates = (
   });
 
   return tl;
+};
+
+/**
+ * Card hover animation
+ */
+export const animateCardHover = (element: HTMLElement) => {
+  return gsap.to(element, {
+    y: -4,
+    scale: 1.02,
+    duration: ANIMATION_DURATIONS.fast,
+    ease: ANIMATION_EASINGS.smooth,
+    overwrite: true,
+  });
+};
+
+/**
+ * Card hover out animation
+ */
+export const animateCardHoverOut = (element: HTMLElement) => {
+  return gsap.to(element, {
+    y: 0,
+    scale: 1,
+    duration: ANIMATION_DURATIONS.fast,
+    ease: ANIMATION_EASINGS.smooth,
+    overwrite: true,
+  });
+};
+
+/**
+ * Button hover animation
+ */
+export const animateButtonHover = (element: HTMLElement) => {
+  return gsap.to(element, {
+    scale: 1.05,
+    duration: ANIMATION_DURATIONS.fast,
+    ease: ANIMATION_EASINGS.smooth,
+    overwrite: true,
+  });
+};
+
+/**
+ * Button hover out animation
+ */
+export const animateButtonHoverOut = (element: HTMLElement) => {
+  return gsap.to(element, {
+    scale: 1,
+    duration: ANIMATION_DURATIONS.fast,
+    ease: ANIMATION_EASINGS.smooth,
+    overwrite: true,
+  });
+};
+
+/**
+ * Theme transition animation
+ */
+export const animateThemeTransition = (newTheme: "light" | "dark") => {
+  const root = document.documentElement;
+
+  const newColors =
+    newTheme === "light"
+      ? {
+          "--background": "#e5e5e5",
+          "--foreground": "#000000",
+          "--secondary": "#404040",
+          "--tertiary": "#202020",
+          "--card-bg": "#ffffff",
+          "--card-border": "rgba(0, 0, 0, 0.12)",
+          "--card-hover": "rgba(0, 0, 0, 0.04)",
+          "--shadow": "rgba(0, 0, 0, 0.1)",
+        }
+      : {
+          "--background": "#000000",
+          "--foreground": "#e5e5e5",
+          "--secondary": "#a8a8a8",
+          "--tertiary": "#c7c7c7",
+          "--card-bg": "rgba(255, 255, 255, 0.05)",
+          "--card-border": "rgba(255, 255, 255, 0.1)",
+          "--card-hover": "rgba(255, 255, 255, 0.08)",
+          "--shadow": "rgba(0, 0, 0, 0.3)",
+        };
+
+  return gsap.to(root, {
+    ...newColors,
+    duration: ANIMATION_DURATIONS.fast,
+    ease: ANIMATION_EASINGS.default,
+    overwrite: true,
+  });
+};
+
+/**
+ * Progress bar animation
+ */
+export const animateProgressBar = (element: HTMLElement, width: string) => {
+  return gsap.to(element, {
+    width,
+    duration: ANIMATION_DURATIONS.slow,
+    ease: ANIMATION_EASINGS.default,
+    overwrite: true,
+  });
+};
+
+/**
+ * Icon rotation animation
+ */
+export const animateIconRotation = (element: HTMLElement) => {
+  return gsap.to(element, {
+    rotation: 5,
+    duration: ANIMATION_DURATIONS.fast,
+    ease: ANIMATION_EASINGS.smooth,
+    overwrite: true,
+  });
+};
+
+/**
+ * Icon rotation out animation
+ */
+export const animateIconRotationOut = (element: HTMLElement) => {
+  return gsap.to(element, {
+    rotation: 0,
+    duration: ANIMATION_DURATIONS.fast,
+    ease: ANIMATION_EASINGS.smooth,
+    overwrite: true,
+  });
+};
+
+// Export animation hooks for convenience
+export {
+  useHoverAnimation,
+  usePageAnimation,
+  useStaggerAnimation,
+  useThemeAnimation,
 };

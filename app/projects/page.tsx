@@ -3,16 +3,35 @@
 import { Heading } from "@/components/heading/heading";
 import ProjectCard from "@/components/project-card/project-card";
 import { projects } from "@/data/projects";
-import { useStaggerAnimation } from "@/lib/hooks";
+import { useStaggerAnimation } from "@/lib/hooks/animations";
+import { useEffect } from "react";
 import "./projects.scss";
 
 export default function Projects() {
-  useStaggerAnimation(".project-card");
+  const staggerAnimation = useStaggerAnimation({
+    selector: ".project-card",
+    from: { opacity: 0, y: 30, scale: 0.95 },
+    to: { opacity: 1, y: 0, scale: 1 },
+    duration: 0.8,
+    stagger: 0.2,
+    ease: "power2.out",
+  });
 
   const totalProjects = projects.length;
   const technologies = Array.from(
     new Set(projects.flatMap((p) => p.tags))
   ).length;
+
+  useEffect(() => {
+    // Re-trigger animation if needed
+    if (staggerAnimation?.animateIn) {
+      const timer = setTimeout(() => {
+        staggerAnimation.animateIn();
+      }, 200);
+
+      return () => clearTimeout(timer);
+    }
+  }, [staggerAnimation]);
 
   return (
     <div className="projects-page">

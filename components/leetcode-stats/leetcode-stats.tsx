@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import "./leetcode-stats.scss";
-import { useStaggerAnimation } from "@/lib/hooks/useStaggerAnimation";
+import { useStaggerAnimation } from "@/lib/hooks/animations";
+import { useHoverAnimation } from "@/lib/hooks/animations";
 
 export interface LeetCodeStats {
   username: string;
@@ -22,7 +23,12 @@ export default function LeetCodeStats({ username }: { username: string }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useStaggerAnimation(".stagger-item", 0.2);
+  useStaggerAnimation({ stagger: 0.2 });
+  const cardAnimation = useHoverAnimation({
+    scale: 1.02,
+    y: -4,
+    duration: 0.3,
+  });
 
   useEffect(() => {
     const fetchLeetCodeStats = async () => {
@@ -122,7 +128,12 @@ export default function LeetCodeStats({ username }: { username: string }) {
   const totalPercent = (stats.totalSolved / stats.totalQuestions) * 100;
 
   return (
-    <div className="leetcode-stats-container">
+    <div
+      ref={cardAnimation.elementRef}
+      onMouseEnter={cardAnimation.handleMouseEnter}
+      onMouseLeave={cardAnimation.handleMouseLeave}
+      className="leetcode-stats-container"
+    >
       {/* Header */}
       <div className="leetcode-header stagger-item">
         <div className="leetcode-icon-wrapper">

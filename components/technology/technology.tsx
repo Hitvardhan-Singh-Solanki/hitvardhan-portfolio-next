@@ -2,6 +2,8 @@
 
 import { technologies } from "@/data/technologies";
 import Image from "next/image";
+import { useHoverAnimation } from "@/lib/hooks/animations";
+import { useTheme } from "@/context/theme-context";
 
 export default function Technology() {
   return (
@@ -63,21 +65,46 @@ function CarouselItem({
   alt: string;
   name: string;
 }) {
+  const { theme } = useTheme();
+  const cardAnimation = useHoverAnimation({ scale: 1.1, y: -4, duration: 0.3 });
+  const iconAnimation = useHoverAnimation({ scale: 1.1, duration: 0.3 });
+
+  // Use theme-aware Next.js logo
+  const getImageSrc = () => {
+    if (alt === "next-js") {
+      return theme === "light"
+        ? "/img/svg/next-js-light.svg"
+        : "/img/svg/next-js-dark.svg";
+    }
+    return src;
+  };
+
   return (
-    <figure className="p-4 flex flex-col items-center text-center transition-all duration-300 hover:scale-110 group">
+    <figure
+      ref={cardAnimation.elementRef}
+      onMouseEnter={() => {
+        cardAnimation.handleMouseEnter();
+        iconAnimation.handleMouseEnter();
+      }}
+      onMouseLeave={() => {
+        cardAnimation.handleMouseLeave();
+        iconAnimation.handleMouseLeave();
+      }}
+      className="p-4 flex flex-col items-center text-center group"
+    >
       <span
-        className="w-28 h-28 flex flex-col items-center justify-center rounded-xl transition-all duration-300 shadow-md"
+        className="w-28 h-28 flex flex-col items-center justify-center rounded-xl shadow-md"
         style={{
           backgroundColor: "var(--card-bg)",
           border: "1px solid var(--card-border)",
         }}
       >
         <Image
-          src={src}
+          src={getImageSrc()}
           alt={alt}
           width={80}
           height={80}
-          className="transition-all duration-300 group-hover:scale-110"
+          ref={iconAnimation.elementRef}
           style={{
             filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.1))",
           }}

@@ -1,10 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { mainButtons } from "@/data/main-buttons";
+import { gsap } from "gsap";
+import "./main-buttons.scss";
 
 export default function MainButtons() {
   const [isMobile, setIsMobile] = useState(false);
+  const buttonRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -25,58 +29,59 @@ export default function MainButtons() {
     }
   }, [isMobile]);
 
+  const handleMouseEnter = (index: number) => {
+    const button = buttonRefs.current[index];
+    if (button) {
+      const border = button.querySelector(
+        ".main-button__border"
+      ) as HTMLElement;
+      if (border) {
+        gsap.to(border, {
+          width: "100%",
+          left: "0%",
+          duration: 0.2,
+          ease: "power2.out",
+        });
+      }
+    }
+  };
+
+  const handleMouseLeave = (index: number) => {
+    const button = buttonRefs.current[index];
+    if (button) {
+      const border = button.querySelector(
+        ".main-button__border"
+      ) as HTMLElement;
+      if (border) {
+        gsap.to(border, {
+          width: "0%",
+          left: "50%",
+          duration: 0.2,
+          ease: "power2.out",
+        });
+      }
+    }
+  };
+
   return (
     <>
       <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 mt-4 pt-2">
-        <Link
-          href="/about"
-          className={`text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-2 md:px-3 py-2 text-base md:text-lg font-medium main-button ${
-            isMobile ? "opacity-100" : "opacity-0 transition-all"
-          }`}
-        >
-          About
-        </Link>
-        <Link
-          href="/work"
-          className={`text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-2 md:px-3 py-2 text-base md:text-lg font-medium main-button ${
-            isMobile ? "opacity-100" : "opacity-0 transition-all"
-          }`}
-        >
-          Work
-        </Link>
-        <Link
-          href="/projects"
-          className={`text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-2 md:px-3 py-2 text-base md:text-lg font-medium main-button ${
-            isMobile ? "opacity-100" : "opacity-0 transition-all"
-          }`}
-        >
-          Projects
-        </Link>
-        <Link
-          href="/blogs"
-          className={`text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-2 md:px-3 py-2 text-base md:text-lg font-medium main-button ${
-            isMobile ? "opacity-100" : "opacity-0 transition-all"
-          }`}
-        >
-          Blog
-        </Link>
-        <Link
-          href="/certificates"
-          className={`text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-2 md:px-3 py-2 text-base md:text-lg font-medium main-button ${
-            isMobile ? "opacity-100" : "opacity-0 transition-all"
-          }`}
-        >
-          Certifications
-        </Link>
-        <Link
-          href="/docs/pdf/resume.pdf"
-          target="_blank"
-          className={`text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-2 md:px-3 py-2 text-base md:text-lg font-medium main-button ${
-            isMobile ? "opacity-100" : "opacity-0 transition-all"
-          }`}
-        >
-          Resume
-        </Link>
+        {mainButtons.map((button, index) => (
+          <Link
+            key={index}
+            ref={(el) => (buttonRefs.current[index] = el)}
+            href={button.href}
+            target={button.target}
+            className={`text-[var(--foreground)] px-2 md:px-3 py-2 text-base md:text-lg font-medium main-button ${
+              isMobile ? "opacity-100" : "opacity-0"
+            }`}
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={() => handleMouseLeave(index)}
+          >
+            <span className="main-button__text">{button.label}</span>
+            <div className="main-button__border"></div>
+          </Link>
+        ))}
       </div>
     </>
   );
