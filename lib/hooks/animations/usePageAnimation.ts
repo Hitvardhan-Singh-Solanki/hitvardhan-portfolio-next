@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useCallback } from "react";
 import { gsap } from "gsap";
 
 interface PageAnimationConfig {
@@ -38,7 +38,7 @@ export const usePageAnimation = (
     ease = "power2.out",
   } = config;
 
-  const animateIn = () => {
+  const animateIn = useCallback(() => {
     if (elementRef.current) {
       gsap.fromTo(elementRef.current, from, {
         ...to,
@@ -48,7 +48,7 @@ export const usePageAnimation = (
         overwrite: true,
       });
     }
-  };
+  }, [from, to, duration, delay, ease]);
 
   const animateOut = () => {
     if (elementRef.current) {
@@ -86,7 +86,7 @@ export const useStaggerAnimation = (
     ease = "power2.out",
   } = config;
 
-  const animateIn = () => {
+  const animateIn = useCallback(() => {
     const elements = document.querySelectorAll(selector);
     if (elements.length > 0) {
       // Set initial state
@@ -102,7 +102,7 @@ export const useStaggerAnimation = (
         overwrite: true,
       });
     }
-  };
+  }, [selector, from, to, duration, delay, stagger, ease]);
 
   useEffect(() => {
     // Use a small delay to ensure DOM is ready

@@ -6,7 +6,6 @@ import { Download } from "lucide-react";
 import "./main-buttons.scss";
 
 export default function MainButtons() {
-
   // Removed GSAP hover animations - now using CSS animations
 
   return (
