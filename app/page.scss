@@ -1,5 +1,35 @@
 .home-page {
   position: relative;
   min-height: 100vh;
+  background: linear-gradient(135deg, var(--background) 0%, rgba(var(--primary-rgb), 0.02) 100%);
+  overflow: hidden;
+
+  // Tighter spacing system for better layout
+  --spacing-xs: 0.25rem;    // 4px
+  --spacing-sm: 0.5rem;     // 8px
+  --spacing-md: 0.75rem;    // 12px
+  --spacing-lg: 1rem;       // 16px
+  --spacing-xl: 1.5rem;     // 24px
+  --spacing-2xl: 2rem;      // 32px
+  --spacing-3xl: 2.5rem;    // 40px
+  --spacing-4xl: 3rem;      // 48px
+  --spacing-5xl: 4rem;      // 64px
+
+  // Subtle background pattern
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(var(--primary-rgb), 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(var(--primary-rgb), 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(var(--primary-rgb), 0.05) 0%, transparent 50%);
+    z-index: -1;
+  }
 }
+
+// Removed problematic pulse animation
 

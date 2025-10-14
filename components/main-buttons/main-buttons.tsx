@@ -21,48 +21,7 @@ export default function MainButtons() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // Run desktop animations
-  useEffect(() => {
-    if (!isMobile && typeof window !== "undefined") {
-      import("@/lib/animations").then(({ animateMainButtons }) => {
-        animateMainButtons(".main-button");
-      });
-    }
-  }, [isMobile]);
-
-  const handleMouseEnter = (index: number) => {
-    const button = buttonRefs.current[index];
-    if (button) {
-      const border = button.querySelector(
-        ".main-button__border"
-      ) as HTMLElement;
-      if (border) {
-        gsap.to(border, {
-          width: "100%",
-          left: "0%",
-          duration: 0.2,
-          ease: "power2.out",
-        });
-      }
-    }
-  };
-
-  const handleMouseLeave = (index: number) => {
-    const button = buttonRefs.current[index];
-    if (button) {
-      const border = button.querySelector(
-        ".main-button__border"
-      ) as HTMLElement;
-      if (border) {
-        gsap.to(border, {
-          width: "0%",
-          left: "50%",
-          duration: 0.2,
-          ease: "power2.out",
-        });
-      }
-    }
-  };
+  // Removed GSAP hover animations - now using CSS animations
 
   return (
     <>
@@ -80,15 +39,11 @@ export default function MainButtons() {
                 ? "Hitvardhan_Singh_Solanki_Resume.pdf"
                 : undefined
             }
-            className={`text-[var(--foreground)] px-2 md:px-3 py-2 text-base md:text-lg font-medium main-button ${
-              isMobile ? "opacity-100" : "opacity-0"
-            }`}
-            onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={() => handleMouseLeave(index)}
+            className="text-[var(--foreground)] px-2 md:px-3 py-2 text-base md:text-lg font-medium main-button opacity-100"
           >
             <span className="main-button__text flex items-center gap-2">
-              {button.label}
               {button.icon === "download" && <Download size={16} />}
+              {button.label}
             </span>
             <div className="main-button__border"></div>
           </Link>
