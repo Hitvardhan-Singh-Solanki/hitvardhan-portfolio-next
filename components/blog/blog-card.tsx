@@ -39,7 +39,7 @@ export function BlogCard({
       href={externalLink}
       target="_blank"
       rel="noopener noreferrer"
-      ref={cardAnimation.elementRef}
+      ref={cardAnimation.elementRef as unknown as React.RefObject<HTMLAnchorElement>}
       onMouseEnter={() => {
         cardAnimation.handleMouseEnter();
         iconAnimation.handleMouseEnter();
@@ -53,7 +53,7 @@ export function BlogCard({
       <div className="blog-header">
         <h2 className="blog-title">{title}</h2>
         <ExternalLink
-          ref={iconAnimation.elementRef}
+          ref={iconAnimation.elementRef as unknown as React.RefObject<SVGSVGElement>}
           className="blog-external-icon"
           size={20}
         />

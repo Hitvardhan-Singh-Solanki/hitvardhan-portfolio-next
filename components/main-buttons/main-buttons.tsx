@@ -14,9 +14,6 @@ export default function MainButtons() {
         {mainButtons.map((button, index) => (
           <Link
             key={index}
-            ref={(el) => {
-              buttonRefs.current[index] = el;
-            }}
             href={button.href}
             target={button.download ? undefined : button.target}
             download={

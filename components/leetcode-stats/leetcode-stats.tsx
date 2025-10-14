@@ -129,7 +129,7 @@ export default function LeetCodeStats({ username }: { username: string }) {
 
   return (
     <div
-      ref={cardAnimation.elementRef}
+      ref={cardAnimation.elementRef as unknown as React.RefObject<HTMLDivElement>}
       onMouseEnter={cardAnimation.handleMouseEnter}
       onMouseLeave={cardAnimation.handleMouseLeave}
       className="leetcode-stats-container"

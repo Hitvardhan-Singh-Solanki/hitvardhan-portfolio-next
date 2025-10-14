@@ -10,7 +10,7 @@ export default function ThemeToggle() {
 
   return (
     <button
-      ref={buttonAnimation.elementRef}
+      ref={buttonAnimation.elementRef as unknown as React.RefObject<HTMLButtonElement>}
       onClick={toggleTheme}
       onMouseEnter={buttonAnimation.handleMouseEnter}
       onMouseLeave={buttonAnimation.handleMouseLeave}

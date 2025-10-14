@@ -11,7 +11,7 @@ interface HoverAnimationConfig {
 }
 
 interface HoverAnimationReturn {
-  elementRef: React.RefObject<HTMLElement>;
+  elementRef: React.RefObject<HTMLElement | HTMLAnchorElement>;
   handleMouseEnter: () => void;
   handleMouseLeave: () => void;
 }
@@ -19,7 +19,7 @@ interface HoverAnimationReturn {
 export const useHoverAnimation = (
   config: HoverAnimationConfig = {}
 ): HoverAnimationReturn => {
-  const elementRef = useRef<HTMLElement>(null);
+  const elementRef = useRef<HTMLElement | HTMLAnchorElement>(null);
   const {
     scale = 1.05,
     y = -4,

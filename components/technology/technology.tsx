@@ -138,7 +138,7 @@ function CarouselItem({
             alt={alt}
             width={90}
             height={90}
-            ref={iconAnimation.elementRef}
+            ref={iconAnimation.elementRef as unknown as React.RefObject<HTMLImageElement>}
             className="transition-all duration-300 group-hover:drop-shadow-lg"
             style={{
               filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.1))",

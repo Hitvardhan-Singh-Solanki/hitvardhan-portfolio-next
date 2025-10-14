@@ -46,7 +46,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       href={project.link}
       target="_blank"
       rel="noopener noreferrer"
-      ref={cardAnimation.elementRef}
+      ref={cardAnimation.elementRef as unknown as React.RefObject<HTMLAnchorElement>}
       onMouseEnter={() => {
         if (isLoaded) {
           cardAnimation.handleMouseEnter();
@@ -65,7 +65,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       <div className="project-header">
         <h3 className="project-title">{project.title}</h3>
         <ExternalLink
-          ref={iconAnimation.elementRef}
+          ref={iconAnimation.elementRef as unknown as React.RefObject<SVGSVGElement>}
           className="project-external-icon"
           size={20}
         />

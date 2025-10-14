@@ -31,7 +31,7 @@ const StatsCard = React.forwardRef<HTMLDivElement, StatsCardProps>(
           const valueElement =
             e.currentTarget.querySelector("[data-stat-value]");
           if (valueElement) {
-            valueElement.style.color = "var(--primary)";
+            (valueElement as HTMLElement).style.color = "var(--primary)";
           }
         }}
         onMouseLeave={(e) => {
@@ -41,7 +41,7 @@ const StatsCard = React.forwardRef<HTMLDivElement, StatsCardProps>(
           const valueElement =
             e.currentTarget.querySelector("[data-stat-value]");
           if (valueElement) {
-            valueElement.style.color = "var(--foreground)";
+            (valueElement as HTMLElement).style.color = "var(--foreground)";
           }
         }}
         {...props}

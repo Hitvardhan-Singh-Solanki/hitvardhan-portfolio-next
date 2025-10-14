@@ -29,7 +29,7 @@ export default function ExperienceCard({ index, job }: ExperienceCardProps) {
 
   return (
     <div
-      ref={cardAnimation.elementRef}
+      ref={cardAnimation.elementRef as unknown as React.RefObject<HTMLDivElement>}
       onMouseEnter={() => {
         cardAnimation.handleMouseEnter();
         iconAnimation.handleMouseEnter();
@@ -44,7 +44,7 @@ export default function ExperienceCard({ index, job }: ExperienceCardProps) {
       <div className="experience-header">
         <div className="experience-info">
           <div className="experience-title">
-            <div ref={iconAnimation.elementRef} className="experience-icon">
+            <div ref={iconAnimation.elementRef as unknown as React.RefObject<HTMLDivElement>} className="experience-icon">
               <IoBriefcase size={20} />
             </div>
             <h2 className="experience-role">{job.role}</h2>
