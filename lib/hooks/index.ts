@@ -5,5 +5,4 @@
  */
 
 export { useStaggerAnimation } from "./useStaggerAnimation";
-export { useHeroAnimation } from "./useHeroAnimation";
 export { useButtonAnimation } from "./useButtonAnimation";
