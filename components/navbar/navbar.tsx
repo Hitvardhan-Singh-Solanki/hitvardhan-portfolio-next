@@ -26,8 +26,6 @@ export default function Navbar() {
     return false;
   };
 
-  const backAnimation = useHoverAnimation({ scale: 1.05, duration: 0.2 });
-
   const handleBackClick = () => {
     router.back();
   };
@@ -86,9 +84,6 @@ export default function Navbar() {
             <div className="flex items-center gap-2">
               <button
                 onClick={handleBackClick}
-                ref={backAnimation.elementRef}
-                onMouseEnter={backAnimation.handleMouseEnter}
-                onMouseLeave={backAnimation.handleMouseLeave}
                 className="flex items-center gap-2 text-foreground hover:text-primary transition-colors duration-200"
                 aria-label="Go back"
               >
@@ -111,8 +106,8 @@ export default function Navbar() {
                 <span className="font-medium hidden sm:inline">Back</span>
               </button>
 
-              {/* Visual separator for mobile */}
-              <div className="w-px h-6 bg-border sm:hidden"></div>
+              {/* Visual separator */}
+              <div className="w-px h-6 bg-border"></div>
 
               <button
                 onClick={handleHomeClick}
