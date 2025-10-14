@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { IoBriefcase } from "react-icons/io5";
+import { useHoverAnimation } from "@/lib/hooks/animations";
 
 export type ExperienceCardProps = {
   job: {
@@ -13,12 +16,35 @@ export type ExperienceCardProps = {
 };
 
 export default function ExperienceCard({ index, job }: ExperienceCardProps) {
+  const cardAnimation = useHoverAnimation({
+    scale: 1.02,
+    y: -4,
+    duration: 0.3,
+  });
+  const iconAnimation = useHoverAnimation({
+    scale: 1.1,
+    rotation: 5,
+    duration: 0.3,
+  });
+
   return (
-    <div className="job-entry" key={index}>
+    <div
+      ref={cardAnimation.elementRef as unknown as React.RefObject<HTMLDivElement>}
+      onMouseEnter={() => {
+        cardAnimation.handleMouseEnter();
+        iconAnimation.handleMouseEnter();
+      }}
+      onMouseLeave={() => {
+        cardAnimation.handleMouseLeave();
+        iconAnimation.handleMouseLeave();
+      }}
+      className="job-entry"
+      key={index}
+    >
       <div className="experience-header">
         <div className="experience-info">
           <div className="experience-title">
-            <div className="experience-icon">
+            <div ref={iconAnimation.elementRef as unknown as React.RefObject<HTMLDivElement>} className="experience-icon">
               <IoBriefcase size={20} />
             </div>
             <h2 className="experience-role">{job.role}</h2>

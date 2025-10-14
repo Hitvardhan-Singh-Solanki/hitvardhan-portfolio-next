@@ -4,6 +4,7 @@ import { experience } from "@/data/experience";
 import ExperienceCard from "@/components/experience-card/experience-card";
 import { Heading } from "@/components/heading/heading";
 import { useStaggerAnimation } from "@/lib/hooks";
+import { StatsCard } from "@/components/ui/stats-card";
 
 export default function Work() {
   const workExperience = experience;
@@ -28,18 +29,12 @@ export default function Work() {
 
         {/* Stats */}
         <div className="work-stats">
-          <div className="work-stat-card">
-            <div className="work-stat-value">{totalYearsExperience}+</div>
-            <div className="work-stat-label">Years of Experience</div>
-          </div>
-          <div className="work-stat-card">
-            <div className="work-stat-value">{totalCompanies}</div>
-            <div className="work-stat-label">Companies</div>
-          </div>
-          <div className="work-stat-card">
-            <div className="work-stat-value">20+</div>
-            <div className="work-stat-label">Projects Delivered</div>
-          </div>
+          <StatsCard
+            value={`${totalYearsExperience}+`}
+            label="Years of Experience"
+          />
+          <StatsCard value={totalCompanies.toString()} label="Companies" />
+          <StatsCard value="20+" label="Projects Delivered" />
         </div>
 
         {/* Experience Timeline */}

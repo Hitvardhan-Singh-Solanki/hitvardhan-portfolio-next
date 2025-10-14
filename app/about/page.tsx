@@ -1,6 +1,7 @@
 import { Heading } from "@/components/heading/heading";
 import Link from "next/link";
 import LeetCodeStats from "@/components/leetcode-stats/leetcode-stats";
+import { StatsCard } from "@/components/ui/stats-card";
 import "./about.scss";
 
 export default function About() {
@@ -48,43 +49,8 @@ export default function About() {
         {/* Stats Grid */}
         <div className="stats-grid">
           {stats.map((stat, index) => (
-            <div key={index} className="stat-card">
-              <div className="stat-value">{stat.value}</div>
-              <div className="stat-label">{stat.label}</div>
-            </div>
+            <StatsCard key={index} value={stat.value} label={stat.label} />
           ))}
-        </div>
-
-        {/* Bio Section */}
-        <div className="bio-section">
-          <h2 className="section-title">My Story</h2>
-          <div className="bio-content">
-            <p>
-              I have a passion for building innovative solutions that drive{" "}
-              <span className="highlight">exceptional user experiences</span>{" "}
-              and <span className="highlight">operational efficiency</span>.
-              Over the years, I&apos;ve contributed to high-impact projects
-              across startups and multinational corporations, demonstrating
-              adaptability and delivering results that matter.
-            </p>
-            <p>
-              One of my proudest achievements was leading the development of a
-              vendor onboarding solution that boosted satisfaction by{" "}
-              <span className="highlight">60%</span> and saved{" "}
-              <span className="highlight">€1.5 million</span>. I also developed
-              a customer support SDK that enhanced communication across
-              platforms, reduced costs, and significantly elevated user
-              experiences.
-            </p>
-            <p>
-              I&apos;m passionate about leveraging technology to solve
-              real-world problems while fostering a culture of{" "}
-              <span className="highlight">collaboration</span> and{" "}
-              <span className="highlight">continuous learning</span>. Outside
-              work, I enjoy exploring emerging technologies and sharing
-              knowledge with fellow engineers.
-            </p>
-          </div>
         </div>
 
         {/* Expertise Section */}
@@ -103,6 +69,46 @@ export default function About() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Bio Section */}
+        <div className="bio-section">
+          <h2 className="section-title">My Story</h2>
+          <div className="bio-content">
+            <ul className="story-list">
+              <li>
+                <span className="highlight">Senior Full-Stack Engineer</span>{" "}
+                with {totalYearsExperience}+ years of experience building
+                innovative web solutions
+              </li>
+              <li>
+                Led development of vendor onboarding solution that boosted
+                satisfaction by <span className="highlight">60%</span> and saved{" "}
+                <span className="highlight">€1.5 million</span>
+              </li>
+              <li>
+                Developed customer support SDK that enhanced cross-platform
+                communication and reduced operational costs
+              </li>
+              <li>
+                Contributed to high-impact projects across startups and
+                multinational corporations
+              </li>
+              <li>
+                Passionate about leveraging technology to solve real-world
+                problems
+              </li>
+              <li>
+                Fosters culture of{" "}
+                <span className="highlight">collaboration</span> and{" "}
+                <span className="highlight">continuous learning</span>
+              </li>
+              <li>
+                Based in <span className="highlight">Barcelona, Spain</span>{" "}
+                with global remote work experience
+              </li>
+            </ul>
           </div>
         </div>
 

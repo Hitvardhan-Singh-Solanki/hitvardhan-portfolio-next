@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
+import { animateThemeTransition } from "@/lib/animations";
 
 type Theme = "light" | "dark";
 
@@ -36,7 +37,11 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }, [theme, mounted]);
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+
+    // Animate theme transition with GSAP
+    animateThemeTransition(newTheme);
   };
 
   return (

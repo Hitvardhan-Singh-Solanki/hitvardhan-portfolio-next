@@ -3,16 +3,36 @@
 import { Heading } from "@/components/heading/heading";
 import ProjectCard from "@/components/project-card/project-card";
 import { projects } from "@/data/projects";
-import { useStaggerAnimation } from "@/lib/hooks";
+import { useStaggerAnimation } from "@/lib/hooks/animations";
+import { useEffect } from "react";
+import { StatsCard } from "@/components/ui/stats-card";
 import "./projects.scss";
 
 export default function Projects() {
-  useStaggerAnimation(".project-card");
+  const staggerAnimation = useStaggerAnimation({
+    selector: ".project-card",
+    from: { opacity: 0, y: 30, scale: 0.95 },
+    to: { opacity: 1, y: 0, scale: 1 },
+    duration: 0.8,
+    stagger: 0.2,
+    ease: "power2.out",
+  });
 
   const totalProjects = projects.length;
   const technologies = Array.from(
     new Set(projects.flatMap((p) => p.tags))
   ).length;
+
+  useEffect(() => {
+    // Re-trigger animation if needed
+    if (staggerAnimation?.animateIn) {
+      const timer = setTimeout(() => {
+        staggerAnimation.animateIn();
+      }, 200);
+
+      return () => clearTimeout(timer);
+    }
+  }, [staggerAnimation]);
 
   return (
     <div className="projects-page">
@@ -29,18 +49,9 @@ export default function Projects() {
 
         {/* Stats */}
         <div className="projects-stats">
-          <div className="projects-stat-card">
-            <div className="projects-stat-value">{totalProjects}</div>
-            <div className="projects-stat-label">Projects</div>
-          </div>
-          <div className="projects-stat-card">
-            <div className="projects-stat-value">{technologies}</div>
-            <div className="projects-stat-label">Technologies</div>
-          </div>
-          <div className="projects-stat-card">
-            <div className="projects-stat-value">100%</div>
-            <div className="projects-stat-label">Open Source</div>
-          </div>
+          <StatsCard value={totalProjects.toString()} label="Projects" />
+          <StatsCard value={technologies.toString()} label="Technologies" />
+          <StatsCard value="100%" label="Open Source" />
         </div>
 
         {/* Projects Grid */}

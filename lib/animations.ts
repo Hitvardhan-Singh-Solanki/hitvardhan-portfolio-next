@@ -6,6 +6,12 @@
  */
 
 import { gsap } from "gsap";
+import {
+  useHoverAnimation,
+  usePageAnimation,
+  useStaggerAnimation,
+  useThemeAnimation,
+} from "./hooks/animations";
 
 // Check if device is mobile
 const isMobileDevice = () => {
@@ -127,68 +133,13 @@ export const animateStagger = (
 };
 
 /**
- * Hero section animation helper
- */
-export const animateHero = (config?: {
-  dpSelector?: string;
-  hrSelector?: string;
-  contentSelector?: string;
-  downArrowSelector?: string;
-}): gsap.core.Timeline => {
-  const {
-    dpSelector = ".dp",
-    hrSelector = ".expand-center > hr",
-    contentSelector = ".main-content",
-    downArrowSelector = ".go-down",
-  } = config || {};
-
-  const tl = createTimeline({
-    delay: ANIMATION_DELAYS.medium,
-  });
-
-  // Skip animations on mobile - set elements to final state immediately
-  if (isMobileDevice()) {
-    gsap.set(dpSelector, { opacity: 1, scale: 1, y: 0 });
-    gsap.set(hrSelector, { width: "100%" });
-    gsap.set(contentSelector, { opacity: 1, height: "auto" });
-    return tl;
-  }
-
-  // Expand horizontal lines
-  tl.to(hrSelector, ANIMATION_CONFIGS.expandCenter.hrExpand)
-    // Show content
-    .from(contentSelector, { height: "0px" })
-    .to(contentSelector, ANIMATION_CONFIGS.expandCenter.contentShow)
-    // Show profile picture
-    .to(dpSelector, {
-      opacity: 1,
-      scale: 0.8,
-      y: -10,
-      duration: ANIMATION_DURATIONS.normal,
-    });
-
-  // Animate down arrow separately (infinite loop)
-  if (downArrowSelector) {
-    const arrowTl = gsap.timeline({
-      yoyo: true,
-      repeat: -1,
-      ease: ANIMATION_EASINGS.default,
-      duration: ANIMATION_DURATIONS.normal,
-    });
-    arrowTl.to(downArrowSelector, ANIMATION_CONFIGS.bounce);
-  }
-
-  return tl;
-};
-
-/**
  * Main buttons stagger animation
  */
 export const animateMainButtons = (
   selector: string = ".main-button"
 ): gsap.core.Timeline => {
   const tl = createTimeline({
-    delay: ANIMATION_DELAYS.medium,
+    delay: ANIMATION_DELAYS.none,
   });
 
   // Skip animations on mobile - set elements to final state immediately
@@ -234,4 +185,135 @@ export const animateCertificates = (
   });
 
   return tl;
+};
+
+/**
+ * Card hover animation
+ */
+export const animateCardHover = (element: HTMLElement) => {
+  return gsap.to(element, {
+    y: -4,
+    scale: 1.02,
+    duration: ANIMATION_DURATIONS.fast,
+    ease: ANIMATION_EASINGS.smooth,
+    overwrite: true,
+  });
+};
+
+/**
+ * Card hover out animation
+ */
+export const animateCardHoverOut = (element: HTMLElement) => {
+  return gsap.to(element, {
+    y: 0,
+    scale: 1,
+    duration: ANIMATION_DURATIONS.fast,
+    ease: ANIMATION_EASINGS.smooth,
+    overwrite: true,
+  });
+};
+
+/**
+ * Button hover animation
+ */
+export const animateButtonHover = (element: HTMLElement) => {
+  return gsap.to(element, {
+    scale: 1.05,
+    duration: ANIMATION_DURATIONS.fast,
+    ease: ANIMATION_EASINGS.smooth,
+    overwrite: true,
+  });
+};
+
+/**
+ * Button hover out animation
+ */
+export const animateButtonHoverOut = (element: HTMLElement) => {
+  return gsap.to(element, {
+    scale: 1,
+    duration: ANIMATION_DURATIONS.fast,
+    ease: ANIMATION_EASINGS.smooth,
+    overwrite: true,
+  });
+};
+
+/**
+ * Theme transition animation
+ */
+export const animateThemeTransition = (newTheme: "light" | "dark") => {
+  const root = document.documentElement;
+
+  const newColors =
+    newTheme === "light"
+      ? {
+          "--background": "#e5e5e5",
+          "--foreground": "#000000",
+          "--secondary": "#404040",
+          "--tertiary": "#202020",
+          "--card-bg": "#ffffff",
+          "--card-border": "rgba(0, 0, 0, 0.12)",
+          "--card-hover": "rgba(0, 0, 0, 0.04)",
+          "--shadow": "rgba(0, 0, 0, 0.1)",
+        }
+      : {
+          "--background": "#000000",
+          "--foreground": "#e5e5e5",
+          "--secondary": "#a8a8a8",
+          "--tertiary": "#c7c7c7",
+          "--card-bg": "rgba(255, 255, 255, 0.05)",
+          "--card-border": "rgba(255, 255, 255, 0.1)",
+          "--card-hover": "rgba(255, 255, 255, 0.08)",
+          "--shadow": "rgba(0, 0, 0, 0.3)",
+        };
+
+  return gsap.to(root, {
+    ...newColors,
+    duration: ANIMATION_DURATIONS.fast,
+    ease: ANIMATION_EASINGS.default,
+    overwrite: true,
+  });
+};
+
+/**
+ * Progress bar animation
+ */
+export const animateProgressBar = (element: HTMLElement, width: string) => {
+  return gsap.to(element, {
+    width,
+    duration: ANIMATION_DURATIONS.slow,
+    ease: ANIMATION_EASINGS.default,
+    overwrite: true,
+  });
+};
+
+/**
+ * Icon rotation animation
+ */
+export const animateIconRotation = (element: HTMLElement) => {
+  return gsap.to(element, {
+    rotation: 5,
+    duration: ANIMATION_DURATIONS.fast,
+    ease: ANIMATION_EASINGS.smooth,
+    overwrite: true,
+  });
+};
+
+/**
+ * Icon rotation out animation
+ */
+export const animateIconRotationOut = (element: HTMLElement) => {
+  return gsap.to(element, {
+    rotation: 0,
+    duration: ANIMATION_DURATIONS.fast,
+    ease: ANIMATION_EASINGS.smooth,
+    overwrite: true,
+  });
+};
+
+// Export animation hooks for convenience
+export {
+  useHoverAnimation,
+  usePageAnimation,
+  useStaggerAnimation,
+  useThemeAnimation,
 };

@@ -1,82 +1,35 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { mainButtons } from "@/data/main-buttons";
+import { Download } from "lucide-react";
+import "./main-buttons.scss";
 
 export default function MainButtons() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  // Run desktop animations
-  useEffect(() => {
-    if (!isMobile && typeof window !== "undefined") {
-      import("@/lib/animations").then(({ animateMainButtons }) => {
-        animateMainButtons(".main-button");
-      });
-    }
-  }, [isMobile]);
+  // Removed GSAP hover animations - now using CSS animations
 
   return (
     <>
       <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 mt-4 pt-2">
-        <Link
-          href="/about"
-          className={`text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-2 md:px-3 py-2 text-base md:text-lg font-medium main-button ${
-            isMobile ? "opacity-100" : "opacity-0 transition-all"
-          }`}
-        >
-          About
-        </Link>
-        <Link
-          href="/work"
-          className={`text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-2 md:px-3 py-2 text-base md:text-lg font-medium main-button ${
-            isMobile ? "opacity-100" : "opacity-0 transition-all"
-          }`}
-        >
-          Work
-        </Link>
-        <Link
-          href="/projects"
-          className={`text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-2 md:px-3 py-2 text-base md:text-lg font-medium main-button ${
-            isMobile ? "opacity-100" : "opacity-0 transition-all"
-          }`}
-        >
-          Projects
-        </Link>
-        <Link
-          href="/blogs"
-          className={`text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-2 md:px-3 py-2 text-base md:text-lg font-medium main-button ${
-            isMobile ? "opacity-100" : "opacity-0 transition-all"
-          }`}
-        >
-          Blog
-        </Link>
-        <Link
-          href="/certificates"
-          className={`text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-2 md:px-3 py-2 text-base md:text-lg font-medium main-button ${
-            isMobile ? "opacity-100" : "opacity-0 transition-all"
-          }`}
-        >
-          Certifications
-        </Link>
-        <Link
-          href="/docs/pdf/resume.pdf"
-          target="_blank"
-          className={`text-[var(--foreground)] hover:border-b-2 hover:border-b-[var(--primary)] px-2 md:px-3 py-2 text-base md:text-lg font-medium main-button ${
-            isMobile ? "opacity-100" : "opacity-0 transition-all"
-          }`}
-        >
-          Resume
-        </Link>
+        {mainButtons.map((button, index) => (
+          <Link
+            key={index}
+            href={button.href}
+            target={button.download ? undefined : button.target}
+            download={
+              button.download
+                ? "Hitvardhan_Singh_Solanki_Resume.pdf"
+                : undefined
+            }
+            className="text-[var(--foreground)] px-2 md:px-3 py-2 text-base md:text-lg font-medium main-button opacity-100"
+          >
+            <span className="main-button__text flex items-center gap-2">
+              {button.icon === "download" && <Download size={16} />}
+              {button.label}
+            </span>
+            <div className="main-button__border"></div>
+          </Link>
+        ))}
       </div>
     </>
   );

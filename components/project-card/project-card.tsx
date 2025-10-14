@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
+import { useHoverAnimation } from "@/lib/hooks/animations";
+import { useEffect, useState } from "react";
 
 export type ProjectCardProps = {
   project: {
@@ -15,17 +17,58 @@ export type ProjectCardProps = {
 };
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const cardAnimation = useHoverAnimation({
+    scale: 1.02,
+    y: -4,
+    duration: 0.3,
+    ease: "power2.out",
+  });
+  const iconAnimation = useHoverAnimation({
+    scale: 1.1,
+    rotation: 5,
+    duration: 0.3,
+    ease: "power2.out",
+  });
+
+  useEffect(() => {
+    // Ensure component is loaded after a small delay
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, index * 50); // Stagger the loading state
+
+    return () => clearTimeout(timer);
+  }, [index]);
+
   return (
     <Link
       href={project.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="project-card"
+      ref={cardAnimation.elementRef as unknown as React.RefObject<HTMLAnchorElement>}
+      onMouseEnter={() => {
+        if (isLoaded) {
+          cardAnimation.handleMouseEnter();
+          iconAnimation.handleMouseEnter();
+        }
+      }}
+      onMouseLeave={() => {
+        if (isLoaded) {
+          cardAnimation.handleMouseLeave();
+          iconAnimation.handleMouseLeave();
+        }
+      }}
+      className={`project-card ${isLoaded ? "loaded" : "loading"}`}
       key={index}
     >
       <div className="project-header">
         <h3 className="project-title">{project.title}</h3>
-        <ExternalLink className="project-external-icon" size={20} />
+        <ExternalLink
+          ref={iconAnimation.elementRef as unknown as React.RefObject<SVGSVGElement>}
+          className="project-external-icon"
+          size={20}
+        />
       </div>
 
       <p className="project-description">{project.description}</p>

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { CalendarDays, Clock, ExternalLink } from "lucide-react";
+import { useHoverAnimation } from "@/lib/hooks/animations";
 
 interface BlogCardProps {
   id: string;
@@ -22,16 +23,40 @@ export function BlogCard({
   tags,
   externalLink,
 }: BlogCardProps) {
+  const cardAnimation = useHoverAnimation({
+    scale: 1.02,
+    y: -4,
+    duration: 0.3,
+  });
+  const iconAnimation = useHoverAnimation({
+    scale: 1.1,
+    rotation: 5,
+    duration: 0.3,
+  });
+
   return (
     <Link
       href={externalLink}
       target="_blank"
       rel="noopener noreferrer"
+      ref={cardAnimation.elementRef as unknown as React.RefObject<HTMLAnchorElement>}
+      onMouseEnter={() => {
+        cardAnimation.handleMouseEnter();
+        iconAnimation.handleMouseEnter();
+      }}
+      onMouseLeave={() => {
+        cardAnimation.handleMouseLeave();
+        iconAnimation.handleMouseLeave();
+      }}
       className="blog-card-content"
     >
       <div className="blog-header">
         <h2 className="blog-title">{title}</h2>
-        <ExternalLink className="blog-external-icon" size={20} />
+        <ExternalLink
+          ref={iconAnimation.elementRef as unknown as React.RefObject<SVGSVGElement>}
+          className="blog-external-icon"
+          size={20}
+        />
       </div>
 
       <div className="blog-meta">
