@@ -1,25 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState, useRef } from "react";
 import { mainButtons } from "@/data/main-buttons";
-import { gsap } from "gsap";
 import { Download } from "lucide-react";
 import "./main-buttons.scss";
 
 export default function MainButtons() {
-  const [isMobile, setIsMobile] = useState(false);
-  const buttonRefs = useRef<(HTMLAnchorElement | null)[]>([]);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
 
   // Removed GSAP hover animations - now using CSS animations
 

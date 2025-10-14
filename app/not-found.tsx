@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { Home, ArrowLeft, Search, AlertTriangle } from "lucide-react";
+import { Home, Search, AlertTriangle } from "lucide-react";
 
 export default function NotFound() {
   const containerRef = useRef<HTMLDivElement>(null);

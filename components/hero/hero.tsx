@@ -7,19 +7,8 @@ import { useEffect, useState, useRef } from "react";
 import { gsap } from "gsap";
 
 export default function Hero() {
-  const [isMobile, setIsMobile] = useState(false);
   const imageRef = useRef<HTMLImageElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
 
   // GSAP pulsating animation for the profile image
   useEffect(() => {

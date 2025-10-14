@@ -5,7 +5,6 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
 import { gsap } from "gsap";
 import ThemeToggle from "../theme-toggle/theme-toggle";
-import { useHoverAnimation } from "@/lib/hooks/animations";
 import { mainButtons } from "@/data/main-buttons";
 import { Download } from "lucide-react";
 import "./navbar.scss";

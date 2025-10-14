@@ -35,7 +35,6 @@ export const usePageAnimation = (
     to = { opacity: 1, y: 0 },
     duration = 0.6,
     delay = 0,
-    stagger = 0,
     ease = "power2.out",
   } = config;
 
@@ -65,7 +64,7 @@ export const usePageAnimation = (
   useEffect(() => {
     // Auto-animate on mount
     animateIn();
-  }, []);
+  }, [animateIn]);
 
   return {
     elementRef,
@@ -112,7 +111,7 @@ export const useStaggerAnimation = (
     }, 100);
 
     return () => clearTimeout(timer);
-  }, [selector]); // Add selector as dependency
+  }, [selector, animateIn]); // Add selector and animateIn as dependencies
 
   return {
     animateIn,

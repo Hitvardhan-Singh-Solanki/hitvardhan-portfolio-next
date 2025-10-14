@@ -6,7 +6,7 @@ import { FaLinkedin, FaGithub, FaDownload, FaEnvelope } from "react-icons/fa6";
 export default function Contact() {
   const contactMethods: Array<{
     href: string;
-    icon: any;
+    icon: React.ComponentType;
     label: string;
     value: string;
     external: boolean;
