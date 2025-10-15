@@ -1,8 +1,8 @@
 .contact-button {
-  // Inactive state - green border, transparent background
-  background: transparent;
-  border: 2px solid var(--primary);
-  color: var(--primary);
+  // Green gradient background like resume button
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: white;
   padding: 0.5rem 1.5rem;
   border-radius: 0.75rem;
   font-weight: 600;
@@ -13,69 +13,41 @@
   gap: 0.5rem;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.2);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
 
-  // Fill from center animation overlay
+  // Shimmer effect overlay (same as resume button)
   &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: linear-gradient(135deg, var(--primary), var(--primary));
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: none;
-    z-index: -1;
-  }
-
-  // Shimmer effect overlay
-  &::after {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: none;
-    z-index: 1;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
   }
 
-  // Hover state - fill from center animation (mouse in only)
+  // Hover state - darker green gradient with shimmer
   &:hover {
-    color: white;
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    border-color: rgba(16, 185, 129, 0.5);
     transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.4);
-    border-color: var(--primary);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
 
     &::before {
-      width: 300%;
-      height: 300%;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    &::after {
       left: 100%;
-      transition: left 0.4s ease;
-    }
-
-    // Shake the icon on hover
-    svg {
-      animation: iconShake 0.6s ease-in-out;
     }
   }
 
-  // Active state - green background (current state)
+  // Active state - darker green gradient
   &.active {
-    background: linear-gradient(135deg, var(--primary), var(--primary));
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
     color: white;
-    box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.3);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
     animation: contactPulse 2s ease-in-out infinite;
 
     &:hover {
-      background: linear-gradient(135deg, var(--primary), var(--primary));
+      background: linear-gradient(135deg, #047857 0%, #065f46 100%);
     }
   }
 
@@ -91,10 +63,10 @@
 
 @keyframes contactPulse {
   0%, 100% {
-    box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.3);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
   }
   50% {
-    box-shadow: 0 4px 20px rgba(var(--primary-rgb), 0.5);
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.5);
   }
 }
 
@@ -110,14 +82,14 @@
   }
 }
 
-// Main buttons in navbar
+// Main buttons in navbar - now styled as green links
 .main-button {
   position: relative;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  background: rgba(var(--primary-rgb), 0.05);
-  border: 1px solid rgba(var(--primary-rgb), 0.2);
-  color: var(--primary);
+  background: transparent;
+  border: none;
+  color: #10b981;
   transition: all 0.2s ease;
   cursor: pointer;
   display: inline-flex;
@@ -125,24 +97,23 @@
   gap: 0.5rem;
   font-weight: 500;
   font-size: 0.875rem;
+  text-decoration: none;
   
   &:hover {
-    background: rgba(var(--primary-rgb), 0.1);
-    border-color: var(--primary);
+    color: #059669;
+    background: rgba(16, 185, 129, 0.1);
     transform: translateY(-1px);
   }
   
-  // Active state - solid background with pulse
+  // Active state - brighter green
   &.active {
-    background: linear-gradient(135deg, var(--primary), var(--primary));
-    color: white;
-    border-color: var(--primary);
-    box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.3);
-    animation: mainButtonPulse 2s ease-in-out infinite;
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.2);
+    font-weight: 600;
     
     &:hover {
-      background: linear-gradient(135deg, var(--primary), var(--primary));
-      transform: translateY(-1px);
+      color: #059669;
+      background: rgba(16, 185, 129, 0.25);
     }
   }
   
@@ -159,6 +130,31 @@
   }
   50% {
     box-shadow: 0 2px 12px rgba(var(--primary-rgb), 0.5);
+  }
+}
+
+// Back and Home button styling
+nav button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.5rem;
+  
+  svg {
+    display: block;
+    flex-shrink: 0;
+  }
+  
+  span {
+    display: flex;
+    align-items: center;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+  
+  &:hover {
+    transform: translateY(-1px);
   }
 }
 
@@ -251,6 +247,20 @@
   justify-content: center;
   padding: 1rem;
   font-size: 1rem;
+  color: #10b981;
+  background: transparent;
+  border: none;
+  
+  &:hover {
+    color: #059669;
+    background: rgba(16, 185, 129, 0.1);
+  }
+  
+  &.active {
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.2);
+    font-weight: 600;
+  }
 }
 
 .mobile-main-buttons {
