@@ -77,7 +77,9 @@ export default function Contact() {
               >
                 <div className="contact-card-inner">
                   <div className="contact-icon-wrapper">
-                    <Icon className="contact-icon" />
+                    <div className="contact-icon">
+                      <Icon />
+                    </div>
                   </div>
                   <div className="contact-info">
                     <h3 className="contact-label">{method.label}</h3>
