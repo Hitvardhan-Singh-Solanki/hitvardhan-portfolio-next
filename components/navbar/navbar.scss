@@ -134,6 +134,31 @@
   }
 }
 
+// Back and Home button styling
+nav button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.5rem;
+  
+  svg {
+    display: block;
+    flex-shrink: 0;
+  }
+  
+  span {
+    display: flex;
+    align-items: center;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+  
+  &:hover {
+    transform: translateY(-1px);
+  }
+}
+
 // Hamburger menu
 .hamburger-menu {
   display: flex;
