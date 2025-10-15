@@ -17,9 +17,9 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-const montserat = localFont({
-  src: "../public/fonts/Montserrat-VariableFont_wght.ttf",
-  variable: "--font-montserat",
+const inter = localFont({
+  src: "../public/fonts/Inter-VariableFont_slnt,wght.ttf",
+  variable: "--font-inter",
   weight: "100 900",
 });
 
@@ -57,7 +57,8 @@ export const metadata: Metadata = {
         url: "/img/png/main.png",
         width: 1200,
         height: 630,
-        alt: "Hitvardhan Singh Solanki - Full Stack Developer",
+        alt: "Hitvardhan Singh Solanki - Full Stack Developer Portfolio",
+        type: "image/png",
       },
     ],
   },
@@ -67,6 +68,7 @@ export const metadata: Metadata = {
     description:
       "Senior Full-Stack Software Engineer based in Barcelona, Spain. Specializing in React, Next.js, TypeScript, Node.js, and building scalable web applications.",
     images: ["/img/png/main.png"],
+    creator: "@hitvardhan",
   },
   robots: {
     index: true,
@@ -102,7 +104,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${montserat.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
         suppressHydrationWarning
       >
         <ThemeProvider>
