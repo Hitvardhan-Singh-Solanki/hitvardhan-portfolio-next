@@ -6,7 +6,7 @@ import { useEffect, useState, useRef } from "react";
 import { gsap } from "gsap";
 import ThemeToggle from "../theme-toggle/theme-toggle";
 import { mainButtons } from "@/data/main-buttons";
-import { Download } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import "./navbar.scss";
 
 export default function Navbar() {
@@ -153,7 +153,7 @@ export default function Navbar() {
                   }`}
                 >
                   <span className="main-button__text flex items-center gap-2">
-                    {button.icon === "download" && <Download size={16} />}
+                    {button.icon === "external" && <ExternalLink size={16} />}
                     {button.label}
                   </span>
                 </Link>
@@ -267,7 +267,7 @@ export default function Navbar() {
                     }`}
                   >
                     <span className="main-button__text flex items-center gap-2">
-                      {button.icon === "download" && <Download size={16} />}
+                      {button.icon === "external" && <ExternalLink size={16} />}
                       {button.label}
                     </span>
                   </Link>

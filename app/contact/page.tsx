@@ -1,7 +1,8 @@
 import { Heading } from "@/components/heading/heading";
 import "./contact.scss";
 import Link from "next/link";
-import { FaLinkedin, FaGithub, FaDownload, FaEnvelope } from "react-icons/fa6";
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa6";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 export default function Contact() {
   const contactMethods: Array<{
@@ -34,12 +35,11 @@ export default function Contact() {
       external: true,
     },
     {
-      href: "/docs/pdf/resume.pdf",
-      icon: FaDownload,
+      href: "https://resumes-flax.vercel.app/hitvardhan_v2",
+      icon: FaExternalLinkAlt,
       label: "Resume",
-      value: "Download PDF",
-      external: false,
-      download: true,
+      value: "View Resume",
+      external: true,
     },
   ];
 
@@ -77,9 +77,7 @@ export default function Contact() {
               >
                 <div className="contact-card-inner">
                   <div className="contact-icon-wrapper">
-                    <div className="contact-icon">
-                      <Icon />
-                    </div>
+                    <Icon className="contact-icon" />
                   </div>
                   <div className="contact-info">
                     <h3 className="contact-label">{method.label}</h3>

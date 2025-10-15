@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { mainButtons } from "@/data/main-buttons";
-import { Download } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import "./main-buttons.scss";
 
 export default function MainButtons() {
@@ -24,7 +24,7 @@ export default function MainButtons() {
             className="text-[var(--foreground)] px-2 md:px-3 py-2 text-base md:text-lg font-medium main-button opacity-100"
           >
             <span className="main-button__text flex items-center gap-2">
-              {button.icon === "download" && <Download size={16} />}
+              {button.icon === "external" && <ExternalLink size={16} />}
               {button.label}
             </span>
             <div className="main-button__border"></div>
