@@ -1,14 +1,15 @@
 "use client";
 
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import Image from "next/image";
 import MainButtons from "../main-buttons/main-buttons";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
 export default function Hero() {
   const imageRef = useRef<HTMLImageElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isAtBottom, setIsAtBottom] = useState(false);
 
   // GSAP pulsating animation for the profile image
   useEffect(() => {
@@ -56,6 +57,26 @@ export default function Hero() {
         "0 0 20px rgba(var(--primary-rgb), 0.2)";
     }
   };
+
+  // Scroll detection to change chevron direction
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+
+      // Check if user is near the bottom (within 100px)
+      const isNearBottom = scrollTop + windowHeight >= documentHeight - 100;
+      setIsAtBottom(isNearBottom);
+    };
+
+    // Initial check
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div className="h-screen relative container mx-auto px-4 lg:px-0">
@@ -140,19 +161,56 @@ export default function Hero() {
         </div>
       </div>
       <div
-        className="hidden md:flex items-start justify-center col-span-5 gap-4 fixed bottom-20 right-10 cursor-pointer h-10 w-6 border-2 rounded-full hover:border-[var(--primary)]"
-        style={{ borderColor: "var(--foreground)" }}
-        onClick={() => {
-          window.scrollTo({
-            top: window.innerHeight * 2,
-            behavior: "smooth",
-          });
+        className="hidden md:flex items-center justify-center col-span-5 gap-4 fixed bottom-20 right-10 cursor-pointer h-10 w-6 border-2 rounded-full hover:border-green-500 z-50"
+        style={{
+          borderColor: "#10b981",
+          background:
+            "linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%)",
+        }}
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+
+          if (isAtBottom) {
+            // Scroll to top
+            try {
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
+            } catch {
+              // Fallback for browsers that don't support smooth scroll
+              document.documentElement.scrollTop = 0;
+              document.body.scrollTop = 0;
+            }
+          } else {
+            // Scroll down to next section
+            try {
+              window.scrollTo({
+                top: window.innerHeight,
+                behavior: "smooth",
+              });
+            } catch {
+              // Fallback for browsers that don't support smooth scroll
+              document.documentElement.scrollTop = window.innerHeight;
+              document.body.scrollTop = window.innerHeight;
+            }
+          }
         }}
       >
-        <ChevronDown
-          className="go-down"
-          style={{ color: "var(--foreground)" }}
-        />
+        {isAtBottom ? (
+          <ChevronUp
+            className="go-up animate-reverseCosineWavePulse pointer-events-none"
+            style={{ color: "#10b981" }}
+            size={20}
+          />
+        ) : (
+          <ChevronDown
+            className="go-down animate-cosineWavePulse pointer-events-none"
+            style={{ color: "#10b981" }}
+            size={20}
+          />
+        )}
       </div>
     </div>
   );

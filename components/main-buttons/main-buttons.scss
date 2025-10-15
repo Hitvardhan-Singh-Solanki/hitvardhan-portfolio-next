@@ -9,8 +9,12 @@
   cursor: pointer;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   font-weight: 500;
+  min-width: 120px;
+  width: 100%;
+  flex: 1;
   
   &:hover {
     background: rgba(var(--primary-rgb), 0.1);
@@ -26,5 +30,65 @@
   
   &__border {
     display: none;
+  }
+}
+
+/* Special styling for resume button */
+.resume-button {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+  }
+  
+  &:hover {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    border-color: rgba(16, 185, 129, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+    
+    &::before {
+      left: 100%;
+    }
+  }
+  
+  &:active {
+    transform: translateY(-1px);
+  }
+  
+  .main-button__text {
+    color: white;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+/* Responsive adjustments for equal width buttons */
+@media (max-width: 768px) {
+  .main-button {
+    min-width: 100px;
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-button {
+    min-width: 80px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
   }
 }

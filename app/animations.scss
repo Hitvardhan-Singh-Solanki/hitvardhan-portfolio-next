@@ -83,6 +83,38 @@
   }
 }
 
+// Cosine wave pulse animation for chevron (starts going down)
+@keyframes cosineWavePulse {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(12px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(6px);
+  }
+}
+
+// Reverse cosine wave pulse animation for upward chevron (starts from bottom)
+@keyframes reverseCosineWavePulse {
+  0%, 100% {
+    transform: translateY(12px);
+  }
+  25% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+  75% {
+    transform: translateY(12px);
+  }
+}
+
 // Rotate animation
 @keyframes rotate {
   from {
@@ -130,6 +162,14 @@
 
 .animate-bounce {
   animation: bounce 1s ease-in-out infinite;
+}
+
+.animate-cosineWavePulse {
+  animation: cosineWavePulse 4s ease-in-out infinite;
+}
+
+.animate-reverseCosineWavePulse {
+  animation: reverseCosineWavePulse 4s ease-in-out infinite;
 }
 
 // Animation delay utilities

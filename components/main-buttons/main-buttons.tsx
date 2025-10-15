@@ -10,7 +10,7 @@ export default function MainButtons() {
 
   return (
     <>
-      <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 mt-4 pt-2">
+      <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 mt-4 pt-2 w-full">
         {mainButtons.map((button, index) => (
           <Link
             key={index}
@@ -21,7 +21,9 @@ export default function MainButtons() {
                 ? "Hitvardhan_Singh_Solanki_Resume.pdf"
                 : undefined
             }
-            className="text-[var(--foreground)] px-2 md:px-3 py-2 text-base md:text-lg font-medium main-button opacity-100"
+            className={`text-[var(--foreground)] px-2 md:px-3 py-2 text-base md:text-lg font-medium main-button opacity-100 ${
+              button.label === "Resume" ? "resume-button" : ""
+            }`}
           >
             <span className="main-button__text flex items-center gap-2">
               {button.icon === "external" && <ExternalLink size={16} />}
