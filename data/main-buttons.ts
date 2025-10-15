@@ -13,9 +13,9 @@ export const mainButtons: MainButton[] = [
   { href: "/blogs", label: "Blog" },
   { href: "/certificates", label: "Certifications" },
   {
-    href: "/docs/pdf/resume.pdf",
+    href: "https://resumes-flax.vercel.app/hitvardhan_v2",
     label: "Resume",
-    download: true,
-    icon: "download",
+    target: "_blank",
+    icon: "external",
   },
 ];
