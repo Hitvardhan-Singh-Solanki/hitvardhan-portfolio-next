@@ -1,13 +1,4 @@
-export interface Blog {
-  id: string;
-  title: string;
-  author: string;
-  description: string;
-  date: string;
-  readTime: string;
-  tags: string[];
-  externalLink: string;
-}
+import type { Blog } from "@/types";
 
 export const blogs: Blog[] = [
   {

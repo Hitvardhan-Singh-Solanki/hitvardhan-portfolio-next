@@ -1,10 +1,4 @@
-export interface MainButton {
-  href: string;
-  label: string;
-  target?: string;
-  download?: boolean;
-  icon?: string;
-}
+import type { MainButton } from "@/types";
 
 export const mainButtons: MainButton[] = [
   { href: "/about", label: "About" },

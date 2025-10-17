@@ -3,17 +3,7 @@
 import Image from "next/image";
 import { IoBriefcase } from "react-icons/io5";
 import { useHoverAnimation } from "@/lib/hooks/animations";
-
-export type ExperienceCardProps = {
-  job: {
-    description: string[];
-    company: string;
-    image?: string;
-    role: string;
-    date: string;
-  };
-  index: number;
-};
+import type { ExperienceCardProps } from "@/types";
 
 export default function ExperienceCard({ index, job }: ExperienceCardProps) {
   const cardAnimation = useHoverAnimation({

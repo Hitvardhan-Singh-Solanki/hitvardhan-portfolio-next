@@ -1,4 +1,6 @@
-export const projects = [
+import type { Project } from "@/types";
+
+export const projects: Project[] = [
   {
     title: "Online JWT Utility",
     link: "https://online-jwt-util.vercel.app/",
