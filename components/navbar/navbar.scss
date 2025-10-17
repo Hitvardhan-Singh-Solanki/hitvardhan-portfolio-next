@@ -139,7 +139,7 @@ nav button {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  min-height: 2.5rem;
+  min-height: 1.25rem;
   
   svg {
     display: block;
@@ -164,7 +164,7 @@ nav button {
   flex-direction: column;
   justify-content: space-around;
   width: 24px;
-  height: 24px;
+  height: 16px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -182,13 +182,13 @@ nav button {
 
   &.open {
     &:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
+      transform: rotate(45deg) translateY(6px);
     }
     &:nth-child(2) {
       opacity: 0;
     }
     &:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -6px);
+      transform: rotate(-45deg) translateY(-6px);
     }
   }
 }

@@ -187,7 +187,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile/Tablet navigation */}
-        <div className="md:hidden flex items-center gap-3">
+        <div className="md:hidden flex items-center gap-3 mr-4">
           <ThemeToggle />
           <button
             onClick={toggleMobileMenu}
