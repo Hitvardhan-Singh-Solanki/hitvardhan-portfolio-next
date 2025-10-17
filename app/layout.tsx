@@ -7,18 +7,18 @@ import { Footer } from "@/components/footer/footer";
 import { ThemeProvider } from "@/context/theme-context";
 
 const geistSans = localFont({
-  src: "../public/fonts/GeistVF.woff",
+  src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
 const geistMono = localFont({
-  src: "../public/fonts/GeistMonoVF.woff",
+  src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
 });
 
 const inter = localFont({
-  src: "../public/fonts/Inter-VariableFont_slnt,wght.ttf",
+  src: "./fonts/Inter-VariableFont.ttf",
   variable: "--font-inter",
   weight: "100 900",
 });
