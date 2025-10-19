@@ -1,14 +1,16 @@
 // LeetCode Stats Variables
 :root {
-  // Colors
-  --leetcode-primary: #ffa116;
-  --leetcode-primary-dark: #ff6b00;
-  --leetcode-primary-light: #ffb84d;
+  // LeetCode specific colors (keep as is)
   --leetcode-easy: #00b8a3;
   --leetcode-easy-light: #00d4b8;
   --leetcode-medium: #ffa116;
   --leetcode-hard: #ff375f;
   --leetcode-hard-light: #ff5c7c;
+  
+  // Use site's default color scheme
+  --leetcode-primary: var(--primary);
+  --leetcode-primary-dark: var(--primary-dark, #ff6b00);
+  --leetcode-primary-light: var(--primary-light, #ffb84d);
   --leetcode-white: #ffffff;
   
   // 4-point spacing system
@@ -93,7 +95,7 @@
   width: 3.5rem;
   height: 3.5rem;
   border-radius: var(--radius-xl);
-  background: linear-gradient(135deg, var(--leetcode-primary) 0%, var(--leetcode-primary-dark) 100%);
+  background: var(--leetcode-primary);
   box-shadow: var(--shadow-leetcode);
 
   .leetcode-icon {
@@ -145,12 +147,8 @@
 
   &.highlight-card {
     grid-column: 1 / -1;
-    background: linear-gradient(
-      135deg,
-      rgba(255, 161, 22, 0.05) 0%,
-      rgba(255, 107, 0, 0.05) 100%
-    );
-    border: 2px solid var(--leetcode-primary);
+    background: var(--background);
+    border: 1px solid var(--card-border);
   }
 }
 
@@ -242,19 +240,19 @@
   animation: progressAnimation var(--transition-slow);
 
   &.total {
-    background: linear-gradient(90deg, var(--leetcode-primary) 0%, var(--leetcode-primary-dark) 100%);
+    background: var(--leetcode-primary);
   }
 
   &.easy {
-    background: linear-gradient(90deg, var(--leetcode-easy) 0%, var(--leetcode-easy-light) 100%);
+    background: var(--leetcode-easy);
   }
 
   &.medium {
-    background: linear-gradient(90deg, var(--leetcode-medium) 0%, var(--leetcode-primary-light) 100%);
+    background: var(--leetcode-medium);
   }
 
   &.hard {
-    background: linear-gradient(90deg, var(--leetcode-hard) 0%, var(--leetcode-hard-light) 100%);
+    background: var(--leetcode-hard);
   }
 }
 
