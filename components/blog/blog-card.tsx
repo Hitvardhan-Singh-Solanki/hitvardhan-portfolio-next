@@ -3,17 +3,7 @@
 import Link from "next/link";
 import { CalendarDays, Clock, ExternalLink } from "lucide-react";
 import { useHoverAnimation } from "@/lib/hooks/animations";
-
-interface BlogCardProps {
-  id: string;
-  title: string;
-  author: string;
-  description: string;
-  date: string;
-  readTime: string;
-  tags: string[];
-  externalLink: string;
-}
+import type { BlogCardProps } from "@/types";
 
 export function BlogCard({
   title,

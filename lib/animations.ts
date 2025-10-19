@@ -161,83 +161,6 @@ export const animateMainButtons = (
 };
 
 /**
- * Certificate cards stagger animation
- */
-export const animateCertificates = (
-  selector: string = ".certificate"
-): gsap.core.Timeline => {
-  const tl = createTimeline({
-    delay: ANIMATION_DELAYS.medium,
-  });
-
-  // Skip animations on mobile - set elements to final state immediately
-  if (isMobileDevice()) {
-    gsap.set(selector, { opacity: 1, y: 0 });
-    return tl;
-  }
-
-  tl.to(selector, {
-    opacity: 1,
-    y: -20,
-    stagger: 0.2,
-    duration: ANIMATION_DURATIONS.normal,
-    ease: ANIMATION_EASINGS.default,
-  });
-
-  return tl;
-};
-
-/**
- * Card hover animation
- */
-export const animateCardHover = (element: HTMLElement) => {
-  return gsap.to(element, {
-    y: -4,
-    scale: 1.02,
-    duration: ANIMATION_DURATIONS.fast,
-    ease: ANIMATION_EASINGS.smooth,
-    overwrite: true,
-  });
-};
-
-/**
- * Card hover out animation
- */
-export const animateCardHoverOut = (element: HTMLElement) => {
-  return gsap.to(element, {
-    y: 0,
-    scale: 1,
-    duration: ANIMATION_DURATIONS.fast,
-    ease: ANIMATION_EASINGS.smooth,
-    overwrite: true,
-  });
-};
-
-/**
- * Button hover animation
- */
-export const animateButtonHover = (element: HTMLElement) => {
-  return gsap.to(element, {
-    scale: 1.05,
-    duration: ANIMATION_DURATIONS.fast,
-    ease: ANIMATION_EASINGS.smooth,
-    overwrite: true,
-  });
-};
-
-/**
- * Button hover out animation
- */
-export const animateButtonHoverOut = (element: HTMLElement) => {
-  return gsap.to(element, {
-    scale: 1,
-    duration: ANIMATION_DURATIONS.fast,
-    ease: ANIMATION_EASINGS.smooth,
-    overwrite: true,
-  });
-};
-
-/**
  * Theme transition animation
  */
 export const animateThemeTransition = (newTheme: "light" | "dark") => {
@@ -270,42 +193,6 @@ export const animateThemeTransition = (newTheme: "light" | "dark") => {
     ...newColors,
     duration: ANIMATION_DURATIONS.fast,
     ease: ANIMATION_EASINGS.default,
-    overwrite: true,
-  });
-};
-
-/**
- * Progress bar animation
- */
-export const animateProgressBar = (element: HTMLElement, width: string) => {
-  return gsap.to(element, {
-    width,
-    duration: ANIMATION_DURATIONS.slow,
-    ease: ANIMATION_EASINGS.default,
-    overwrite: true,
-  });
-};
-
-/**
- * Icon rotation animation
- */
-export const animateIconRotation = (element: HTMLElement) => {
-  return gsap.to(element, {
-    rotation: 5,
-    duration: ANIMATION_DURATIONS.fast,
-    ease: ANIMATION_EASINGS.smooth,
-    overwrite: true,
-  });
-};
-
-/**
- * Icon rotation out animation
- */
-export const animateIconRotationOut = (element: HTMLElement) => {
-  return gsap.to(element, {
-    rotation: 0,
-    duration: ANIMATION_DURATIONS.fast,
-    ease: ANIMATION_EASINGS.smooth,
     overwrite: true,
   });
 };

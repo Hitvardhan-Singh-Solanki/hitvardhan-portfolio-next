@@ -1,4 +1,6 @@
-export const technologies = [
+import type { Technology } from "@/types";
+
+export const technologies: Technology[] = [
   { src: "/img/svg/ts.svg", alt: "typescript", name: "Typescript" },
   { src: "/img/svg/js.svg", alt: "javascript", name: "Javascript" },
   { src: "/img/svg/next-js.svg", alt: "next-js", name: "Next.js" },

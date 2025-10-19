@@ -4,17 +4,7 @@ import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { useHoverAnimation } from "@/lib/hooks/animations";
 import { useEffect, useState } from "react";
-
-export type ProjectCardProps = {
-  project: {
-    title: string;
-    link: string;
-    description: string;
-    tags: string[];
-    featured?: boolean;
-  };
-  index: number;
-};
+import type { ProjectCardProps } from "@/types";
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
   const [isLoaded, setIsLoaded] = useState(false);

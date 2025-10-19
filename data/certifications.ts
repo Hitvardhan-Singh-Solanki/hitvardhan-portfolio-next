@@ -1,8 +1,10 @@
+import type { Certificate } from "@/types";
+
 export const udemyUrl = "https://www.udemy.com/certificate/";
 
 export const credlyUrl = "https://www.credly.com/badges/";
 
-export const certificates = [
+export const certificates: Certificate[] = [
   {
     id: "UC-Z8WL6OAD",
     src: "/img/jpg/power_bi_udemy.jpg",
