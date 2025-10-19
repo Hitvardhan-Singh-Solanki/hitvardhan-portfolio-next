@@ -118,9 +118,9 @@ export default function LeetCodeStats({ username }: { username: string }) {
     );
   }
 
-  const easyTotal = 800; // Approximate totals (these change over time)
-  const mediumTotal = 1700;
-  const hardTotal = 750;
+  const easyTotal = 908; // Approximate totals (these change over time)
+  const mediumTotal = 1936;
+  const hardTotal = 877;
 
   const easyPercent = (stats.easySolved / easyTotal) * 100;
   const mediumPercent = (stats.mediumSolved / mediumTotal) * 100;
@@ -129,7 +129,9 @@ export default function LeetCodeStats({ username }: { username: string }) {
 
   return (
     <div
-      ref={cardAnimation.elementRef as unknown as React.RefObject<HTMLDivElement>}
+      ref={
+        cardAnimation.elementRef as unknown as React.RefObject<HTMLDivElement>
+      }
       onMouseEnter={cardAnimation.handleMouseEnter}
       onMouseLeave={cardAnimation.handleMouseLeave}
       className="leetcode-stats-container"
@@ -155,7 +157,14 @@ export default function LeetCodeStats({ username }: { username: string }) {
         </div>
         <div>
           <h2 className="leetcode-title">LeetCode Stats</h2>
-          <p className="leetcode-username">@{stats.username}</p>
+          <a
+            href={`https://leetcode.com/${stats.username}/`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="leetcode-username-link"
+          >
+            @{stats.username}
+          </a>
         </div>
       </div>
 
